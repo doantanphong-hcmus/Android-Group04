@@ -1,4 +1,3 @@
 package com.tangkinhcac.app.data.repository
 
-class FirebaseBookRepository {
-}
+class FirebaseBookRepository

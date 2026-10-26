@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
+    id("org.jlleitschuh.gradle.ktlint")
 }
 
 android {
@@ -30,6 +31,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    lint {
+        disable += "AndroidGradlePluginVersion"
+        disable += "GradleDependency"
+        warningsAsErrors = true
+    }
+}
+
+ktlint {
+    android.set(true)
 }
 
 dependencies {
@@ -41,10 +51,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-    // Firebase bill of materials
-    implementation(platform("com.google.firebase:firebase-bom:34.16.0"))
-    // Firebase authentication
-    implementation("com.google.firebase:firebase-auth")
-    // Cloud Firestore
-    implementation("com.google.firebase:firebase-firestore")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore)
 }

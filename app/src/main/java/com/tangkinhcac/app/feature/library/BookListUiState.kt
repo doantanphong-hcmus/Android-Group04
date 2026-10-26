@@ -5,5 +5,5 @@ import com.tangkinhcac.app.data.model.Book
 data class BookListUiState(
     val books: List<Book> = emptyList(),
     val isLoading: Boolean = false,
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
 )

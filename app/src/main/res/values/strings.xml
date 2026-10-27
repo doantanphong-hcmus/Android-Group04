@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Tang Kinh Cac</string>
+    <string name="navigation_home">Trang chủ</string>
+    <string name="navigation_community">Cộng đồng</string>
+    <string name="navigation_library">Thư viện</string>
+    <string name="navigation_article">Bài viết</string>
+    <string name="navigation_profile">Cá nhân</string>
 </resources>

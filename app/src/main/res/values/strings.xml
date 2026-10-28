@@ -1,8 +1,22 @@
 <resources>
-    <string name="app_name">Tang Kinh Cac</string>
+    <string name="app_name">Tàng Kinh Các</string>
     <string name="navigation_home">Trang chủ</string>
     <string name="navigation_community">Cộng đồng</string>
     <string name="navigation_library">Thư viện</string>
     <string name="navigation_article">Bài viết</string>
     <string name="navigation_profile">Cá nhân</string>
+    <string name="login_email_hint">Email hoặc tên đăng nhập</string>
+    <string name="login_password_hint">Mật khẩu</string>
+    <string name="login_button">Đăng nhập  →</string>
+    <string name="login_or">hoặc</string>
+    <string name="login_no_account">Chưa có tài khoản?</string>
+    <string name="login_register_placeholder">Đăng ký ngay  →</string>
+    <string name="login_error_email_required">Vui lòng nhập email.</string>
+    <string name="login_error_email_invalid">Email không đúng định dạng.</string>
+    <string name="login_error_password_required">Vui lòng nhập mật khẩu.</string>
+    <string name="login_error_password_short">Mật khẩu phải có ít nhất 6 ký tự.</string>
+    <string name="login_error_invalid_credentials">Email hoặc mật khẩu không đúng.</string>
+    <string name="login_error_network">Không thể kết nối. Vui lòng kiểm tra Internet.</string>
+    <string name="login_error_too_many_requests">Bạn đã thử quá nhiều lần. Vui lòng thử lại sau.</string>
+    <string name="login_error_unknown">Đăng nhập thất bại. Vui lòng thử lại.</string>
 </resources>

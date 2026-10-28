@@ -34,6 +34,8 @@ android {
     lint {
         disable += "AndroidGradlePluginVersion"
         disable += "GradleDependency"
+        // The generated adaptive launcher intentionally coexists with density-specific bitmap fallbacks.
+        disable += "IconXmlAndPng"
         warningsAsErrors = true
     }
 }
@@ -54,4 +56,8 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
 }

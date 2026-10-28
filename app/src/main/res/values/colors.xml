@@ -4,4 +4,12 @@
     <color name="navigation_background">#FBF7EE</color>
     <color name="navigation_selected">#A54234</color>
     <color name="navigation_unselected">#403A36</color>
+    <color name="auth_field_background">#F2ECE3</color>
+    <color name="auth_text_primary">#4A413A</color>
+    <color name="auth_text_secondary">#B9A793</color>
+    <color name="auth_accent">#F2A51A</color>
+    <color name="auth_button_start">#A92A22</color>
+    <color name="auth_button_end">#D52323</color>
+    <color name="auth_error">#FFD0CB</color>
+    <color name="auth_divider">#CDBDA9</color>
 </resources>

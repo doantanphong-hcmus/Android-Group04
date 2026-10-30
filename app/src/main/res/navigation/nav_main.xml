@@ -13,7 +13,26 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.tangkinhcac.app.feature.auth.RegisterFragment"
+        android:label="Register">
+        <action
+            android:id="@+id/action_registerFragment_to_registrationSuccessFragment"
+            app:destination="@id/registrationSuccessFragment"
+            app:popUpTo="@id/registerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationSuccessFragment"
+        android:name="com.tangkinhcac.app.feature.auth.RegistrationSuccessFragment"
+        android:label="Registration success" />
 
     <fragment
         android:id="@+id/homeFragment"

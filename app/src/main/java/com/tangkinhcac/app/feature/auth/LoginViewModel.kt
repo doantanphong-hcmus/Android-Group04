@@ -76,9 +76,6 @@ class LoginViewModel(
         }
 
     companion object {
-        private const val MIN_PASSWORD_LENGTH = 6
-        private val EMAIL_PATTERN = Regex("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")
-
         fun factory(authRepository: AuthRepository): ViewModelProvider.Factory =
             viewModelFactory {
                 initializer {

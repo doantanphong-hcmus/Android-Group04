@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.auth.RegisterFragment">
+
+    <include
+        layout="@layout/view_auth_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/register_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/register_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="720dp">
+
+            <ImageButton
+                android:id="@+id/register_back_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/register_back_content_description"
+                android:padding="12dp"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/register_form"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/register_back_button"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintWidth_max="@dimen/auth_register_form_max_width"
+                app:layout_constraintWidth_percent="0.86">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="@string/register_title"
+                    android:textColor="@android:color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="serif"
+                    android:text="@string/register_subtitle"
+                    android:textColor="@color/auth_text_secondary"
+                    android:textSize="13sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/full_name_input"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxBackgroundColor="@color/auth_field_background"
+                    app:boxCornerRadiusBottomEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/auth_field_corner_radius"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/full_name_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/auth_accessible_field_height"
+                        android:fontFamily="serif"
+                        android:hint="@string/register_full_name_hint"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords|textPersonName"
+                        android:maxLines="1"
+                        android:textColor="@color/auth_text_primary"
+                        android:textColorHint="@color/auth_text_primary"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/username_input"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/auth_field_background"
+                    app:boxCornerRadiusBottomEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/auth_field_corner_radius"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/username_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/auth_accessible_field_height"
+                        android:fontFamily="serif"
+                        android:hint="@string/register_username_hint"
+                        android:imeOptions="actionNext"
+                        android:inputType="textNoSuggestions"
+                        android:maxLines="1"
+                        android:textColor="@color/auth_text_primary"
+                        android:textColorHint="@color/auth_text_primary"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birth_date_input"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/auth_field_background"
+                    app:boxCornerRadiusBottomEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/auth_field_corner_radius"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/birth_date_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/auth_accessible_field_height"
+                        android:clickable="true"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:fontFamily="serif"
+                        android:hint="@string/register_birth_date_hint"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:textColor="@color/auth_text_primary"
+                        android:textColorHint="@color/auth_text_primary"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_number_input"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/auth_field_background"
+                    app:boxCornerRadiusBottomEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/auth_field_corner_radius"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone_number_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/auth_accessible_field_height"
+                        android:fontFamily="serif"
+                        android:hint="@string/register_phone_number_hint"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textColor="@color/auth_text_primary"
+                        android:textColorHint="@color/auth_text_primary"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_email_input"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/auth_field_background"
+                    app:boxCornerRadiusBottomEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/auth_field_corner_radius"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_email_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/auth_accessible_field_height"
+                        android:fontFamily="serif"
+                        android:hint="@string/register_email_hint"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textColor="@color/auth_text_primary"
+                        android:textColorHint="@color/auth_text_primary"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/register_password_input"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/auth_field_background"
+                    app:boxCornerRadiusBottomEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/auth_field_corner_radius"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/register_password_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/auth_accessible_field_height"
+                        android:fontFamily="serif"
+                        android:hint="@string/register_password_hint"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/auth_text_primary"
+                        android:textColorHint="@color/auth_text_primary"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/confirm_password_input"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:boxBackgroundColor="@color/auth_field_background"
+                    app:boxCornerRadiusBottomEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/auth_field_corner_radius"
+                    app:boxCornerRadiusTopStart="@dimen/auth_field_corner_radius"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:endIconMode="password_toggle"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/confirm_password_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/auth_accessible_field_height"
+                        android:fontFamily="serif"
+                        android:hint="@string/register_confirm_password_hint"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="@color/auth_text_primary"
+                        android:textColorHint="@color/auth_text_primary"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/register_general_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="serif"
+                    android:textColor="@color/auth_error"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/auth_accessible_field_height"
+                    android:layout_marginTop="14dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/register_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_login_button"
+                        android:backgroundTint="@null"
+                        android:fontFamily="serif"
+                        android:text="@string/register_button"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                    <ProgressBar
+                        android:id="@+id/register_progress"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:indeterminateTint="@android:color/white"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

@@ -6,8 +6,6 @@ import android.view.inputmethod.EditorInfo
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -20,6 +18,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.tangkinhcac.app.R
 import com.tangkinhcac.app.TangKinhCacApplication
+import com.tangkinhcac.app.ui.applySystemBarPadding
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -42,18 +41,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val loginButton = view.findViewById<AppCompatButton>(R.id.login_button)
         val loginProgress = view.findViewById<ProgressBar>(R.id.login_progress)
         val loginError = view.findViewById<TextView>(R.id.login_error)
+        val registerLink = view.findViewById<TextView>(R.id.register_link)
 
-        // Keep controls clear of system bars while allowing the artwork to remain edge-to-edge.
-        ViewCompat.setOnApplyWindowInsetsListener(content) { target, windowInsets ->
-            val systemBars = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            target.setPadding(
-                systemBars.left,
-                systemBars.top,
-                systemBars.right,
-                systemBars.bottom,
-            )
-            windowInsets
-        }
+        content.applySystemBarPadding()
 
         emailEditText.doAfterTextChanged { viewModel.clearError() }
         passwordEditText.doAfterTextChanged { viewModel.clearError() }
@@ -63,6 +53,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 email = emailEditText.text?.toString().orEmpty(),
                 password = passwordEditText.text?.toString().orEmpty(),
             )
+        }
+
+        registerLink.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
         passwordEditText.setOnEditorActionListener { _, actionId, _ ->

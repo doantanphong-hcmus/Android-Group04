@@ -1,5 +1,6 @@
 package com.tangkinhcac.app.feature.auth
 
+import com.tangkinhcac.app.data.model.RegistrationRequest
 import com.tangkinhcac.app.data.repository.AuthRepository
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -89,6 +90,13 @@ class LoginViewModelTest {
             signInCalls += 1
             lastEmail = email
             callback = onResult
+        }
+
+        override fun registerAccount(
+            request: RegistrationRequest,
+            onResult: (AuthRepository.RegistrationResult) -> Unit,
+        ) {
+            error("Registration is not used by LoginViewModel tests")
         }
 
         fun complete(result: AuthRepository.SignInResult) {

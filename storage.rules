@@ -1,0 +1,10 @@
+rules_version = '2';
+
+service firebase.storage {
+    match /b/{bucket}/o {
+        // Storage remains closed until each feature defines its validated read and write paths.
+        match /{path=**} {
+            allow read, write: if false;
+        }
+    }
+}

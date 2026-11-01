@@ -12,6 +12,9 @@ firebaseBom = "34.16.0"
 fragment = "1.9.1"
 lifecycle = "2.11.0"
 navigation = "2.10.2"
+ksp = "2.3.6"
+room = "3.0.3"
+sqlite = "2.7.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +32,12 @@ androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fr
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
+firebase-storage = { module = "com.google.firebase:firebase-storage" }
+androidx-room-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room" }
+androidx-room-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room" }
+androidx-sqlite-framework = { module = "androidx.sqlite:sqlite-framework", version.ref = "sqlite" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+androidx-room = { id = "androidx.room3", version.ref = "room" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

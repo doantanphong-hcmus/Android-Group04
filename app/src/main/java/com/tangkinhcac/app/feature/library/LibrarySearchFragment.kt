@@ -6,6 +6,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -85,6 +86,9 @@ class LibrarySearchFragment : Fragment(R.layout.fragment_library_search) {
             LayoutInflater
                 .from(parent.context)
                 .inflate(R.layout.item_library_search_result, parent, false)
+        resultView
+            .findViewById<ImageView>(R.id.search_result_cover)
+            .setImageResource(book.coverResId)
         resultView.findViewById<TextView>(R.id.search_result_title).text = book.title
         resultView.findViewById<TextView>(R.id.search_result_author).text = book.author
         resultView.findViewById<TextView>(R.id.search_result_rating).text =

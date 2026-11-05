@@ -57,6 +57,7 @@
     <string name="library_country_vietnam">Việt Nam</string>
     <string name="library_country_china">Trung Quốc</string>
     <string name="library_country_japan">Nhật Bản</string>
+    <string name="library_country_korea">Hàn Quốc</string>
     <string name="library_filter_popular">Phổ biến</string>
     <string name="library_filter_new">Mới cập nhật</string>
     <string name="library_filter_free">Miễn phí</string>
@@ -66,13 +67,6 @@
     <string name="library_watch_now">Khám phá ngay →</string>
     <string name="library_recommended">♛  Đề xuất cho bạn</string>
     <string name="library_view_all">Xem tất cả →</string>
-    <string name="library_cover_placeholder">Bìa sách\nplaceholder</string>
-    <string name="library_book_truyen_kieu">Truyện Kiều</string>
-    <string name="library_book_tay_du_ky">Tây Du Ký</string>
-    <string name="library_book_thuy_hu">Thủy Hử</string>
-    <string name="library_author_nguyen_du">Nguyễn Du</string>
-    <string name="library_author_ngo_thua_an">Ngô Thừa Ân</string>
-    <string name="library_author_thi_nai_am">Thi Nại Am</string>
     <string name="library_badge_free">Miễn phí</string>
     <string name="library_badge_vip">♛ VIP</string>
     <string name="library_search_title">Tìm kiếm</string>
@@ -96,7 +90,4 @@
     <string name="library_genre_other">Khác</string>
     <string name="library_symbol_more">⋮</string>
     <string name="library_symbol_next">›</string>
-    <string name="library_rating_truyen_kieu">★ 4.9 (1.2k)</string>
-    <string name="library_rating_tay_du_ky">★ 4.8 (856)</string>
-    <string name="library_rating_thuy_hu">★ 4.7 (692)</string>
 </resources>

@@ -137,6 +137,16 @@
                         android:text="@string/library_country_japan"
                         android:textColor="@color/library_text_primary"
                         android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_library_chip"
+                        android:fontFamily="serif"
+                        android:text="@string/library_country_korea"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="12sp" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -304,54 +314,10 @@
                 android:scrollbars="none">
 
                 <LinearLayout
+                    android:id="@+id/library_books_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="112dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:orientation="vertical">
-
-                        <FrameLayout android:layout_width="@dimen/library_book_cover_width" android:layout_height="@dimen/library_book_cover_height">
-                            <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_library_placeholder" android:fontFamily="serif" android:gravity="center" android:padding="8dp" android:text="@string/library_cover_placeholder" android:textAlignment="center" android:textColor="@color/library_placeholder_text" android:textSize="11sp" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="5dp" android:background="@drawable/bg_library_badge_free" android:fontFamily="serif" android:text="@string/library_badge_free" android:textColor="@android:color/white" android:textSize="11sp" />
-                        </FrameLayout>
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_book_truyen_kieu" android:textColor="@color/library_text_primary" android:textSize="14sp" android:textStyle="bold" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_author_nguyen_du" android:textColor="@color/library_text_secondary" android:textSize="11sp" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_rating_truyen_kieu" android:textColor="@color/library_star" android:textSize="11sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="112dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:orientation="vertical">
-
-                        <FrameLayout android:layout_width="@dimen/library_book_cover_width" android:layout_height="@dimen/library_book_cover_height">
-                            <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_library_placeholder" android:fontFamily="serif" android:gravity="center" android:padding="8dp" android:text="@string/library_cover_placeholder" android:textAlignment="center" android:textColor="@color/library_placeholder_text" android:textSize="11sp" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="5dp" android:background="@drawable/bg_library_badge_vip" android:fontFamily="serif" android:text="@string/library_badge_vip" android:textColor="@android:color/white" android:textSize="11sp" />
-                        </FrameLayout>
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_book_tay_du_ky" android:textColor="@color/library_text_primary" android:textSize="14sp" android:textStyle="bold" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_author_ngo_thua_an" android:textColor="@color/library_text_secondary" android:textSize="11sp" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_rating_tay_du_ky" android:textColor="@color/library_star" android:textSize="11sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="112dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <FrameLayout android:layout_width="@dimen/library_book_cover_width" android:layout_height="@dimen/library_book_cover_height">
-                            <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_library_placeholder" android:fontFamily="serif" android:gravity="center" android:padding="8dp" android:text="@string/library_cover_placeholder" android:textAlignment="center" android:textColor="@color/library_placeholder_text" android:textSize="11sp" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="5dp" android:background="@drawable/bg_library_badge_free" android:fontFamily="serif" android:text="@string/library_badge_free" android:textColor="@android:color/white" android:textSize="11sp" />
-                        </FrameLayout>
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_book_thuy_hu" android:textColor="@color/library_text_primary" android:textSize="14sp" android:textStyle="bold" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_author_thi_nai_am" android:textColor="@color/library_text_secondary" android:textSize="11sp" />
-                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_rating_thuy_hu" android:textColor="@color/library_star" android:textSize="11sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                    android:orientation="horizontal" />
             </HorizontalScrollView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

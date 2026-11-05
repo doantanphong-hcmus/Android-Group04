@@ -9,7 +9,8 @@ class LibrarySearchCatalogTest {
     fun `search ignores Vietnamese accents and letter case`() {
         val results = LibrarySearchCatalog.search("TAM QUOC")
 
-        assertEquals(4, results.size)
+        assertEquals(1, results.size)
+        assertEquals("Tam Quốc Diễn Nghĩa", results.single().title)
     }
 
     @Test
@@ -17,5 +18,13 @@ class LibrarySearchCatalogTest {
         val results = LibrarySearchCatalog.search("Dạ Hành Lục")
 
         assertTrue(results.isEmpty())
+    }
+
+    @Test
+    fun `blank search only returns the supplied books`() {
+        val results = LibrarySearchCatalog.search("")
+
+        assertEquals(8, results.size)
+        assertTrue(results.none { it.title.contains("placeholder", ignoreCase = true) })
     }
 }

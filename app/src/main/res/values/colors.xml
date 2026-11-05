@@ -19,8 +19,6 @@
     <color name="library_accent">#C63B28</color>
     <color name="library_border">#E5CBAA</color>
     <color name="library_chip">#F6EBDD</color>
-    <color name="library_placeholder">#E6D1B3</color>
-    <color name="library_placeholder_text">#735B42</color>
     <color name="library_free">#6EAF56</color>
     <color name="library_vip">#D9A22E</color>
     <color name="library_star">#E39622</color>

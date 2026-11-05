@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="surface_background">#FFFFFF</color>
-    <color name="navigation_background">#FBF7EE</color>
-    <color name="navigation_selected">#A54234</color>
+    <color name="navigation_background">#FFF9EF</color>
+    <color name="navigation_selected">#C63B28</color>
     <color name="navigation_unselected">#403A36</color>
     <color name="auth_field_background">#F2ECE3</color>
     <color name="auth_text_primary">#4A413A</color>
@@ -13,4 +12,14 @@
     <color name="auth_error">#FFD0CB</color>
     <color name="auth_divider">#CDBDA9</color>
     <color name="auth_panel_background">#F2F2ECE3</color>
+    <color name="library_background">#FFF9EF</color>
+    <color name="library_surface">#FFFCF6</color>
+    <color name="library_text_primary">#3D2B20</color>
+    <color name="library_text_secondary">#7A6657</color>
+    <color name="library_accent">#C63B28</color>
+    <color name="library_border">#E5CBAA</color>
+    <color name="library_chip">#F6EBDD</color>
+    <color name="library_free">#6EAF56</color>
+    <color name="library_vip">#D9A22E</color>
+    <color name="library_star">#E39622</color>
 </resources>

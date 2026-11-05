@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="132dp"
+        android:layout_gravity="top"
+        android:alpha="0.55"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/library_banner" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/library_content_padding"
+            android:paddingTop="12dp"
+            android:paddingEnd="@dimen/library_content_padding"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="@string/library_title"
+                android:textColor="@color/library_text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="@string/library_subtitle"
+                android:textColor="@color/library_text_secondary"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/library_search_height"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_library_search"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_library_search" />
+
+                <EditText
+                    android:id="@+id/library_search_input"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:hint="@string/library_search_hint"
+                    android:imeOptions="actionSearch"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="0dp"
+                    android:textColor="@color/library_text_primary"
+                    android:textColorHint="@color/library_text_secondary"
+                    android:textSize="13sp" />
+
+                <ImageButton
+                    android:id="@+id/library_genres_button"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/library_filter_content_description"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_library_filter" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_library_chip_selected"
+                        android:fontFamily="serif"
+                        android:text="@string/library_country_all"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_library_chip"
+                        android:fontFamily="serif"
+                        android:text="@string/library_country_vietnam"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_library_chip"
+                        android:fontFamily="serif"
+                        android:text="@string/library_country_china"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_library_chip"
+                        android:fontFamily="serif"
+                        android:text="@string/library_country_japan"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="92dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_library_card"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.tangkinhcac.app.ui.LibraryFilterIconView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        app:filterIconIndex="0" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_filter_popular" android:textColor="@color/library_text_primary" android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_library_card"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.tangkinhcac.app.ui.LibraryFilterIconView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        app:filterIconIndex="1" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_filter_new" android:textColor="@color/library_text_primary" android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_library_card"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.tangkinhcac.app.ui.LibraryFilterIconView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        app:filterIconIndex="2" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_filter_free" android:textColor="@color/library_text_primary" android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_library_card"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.tangkinhcac.app.ui.LibraryFilterIconView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        app:filterIconIndex="3" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_filter_vip" android:textColor="@color/library_text_primary" android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_library_card">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/library_banner" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_library_hero_overlay" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="@string/library_featured_title"
+                        android:textColor="@android:color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="serif"
+                        android:text="@string/library_featured_subtitle"
+                        android:textColor="#F8EBDD"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_library_primary_button"
+                        android:fontFamily="serif"
+                        android:text="@string/library_watch_now"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="serif"
+                    android:text="@string/library_recommended"
+                    android:textColor="@color/library_text_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:text="@string/library_view_all"
+                    android:textColor="@color/library_accent"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="112dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout android:layout_width="@dimen/library_book_cover_width" android:layout_height="@dimen/library_book_cover_height">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_library_placeholder" android:fontFamily="serif" android:gravity="center" android:padding="8dp" android:text="@string/library_cover_placeholder" android:textAlignment="center" android:textColor="@color/library_placeholder_text" android:textSize="11sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="5dp" android:background="@drawable/bg_library_badge_free" android:fontFamily="serif" android:text="@string/library_badge_free" android:textColor="@android:color/white" android:textSize="11sp" />
+                        </FrameLayout>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_book_truyen_kieu" android:textColor="@color/library_text_primary" android:textSize="14sp" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_author_nguyen_du" android:textColor="@color/library_text_secondary" android:textSize="11sp" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_rating_truyen_kieu" android:textColor="@color/library_star" android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="112dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical">
+
+                        <FrameLayout android:layout_width="@dimen/library_book_cover_width" android:layout_height="@dimen/library_book_cover_height">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_library_placeholder" android:fontFamily="serif" android:gravity="center" android:padding="8dp" android:text="@string/library_cover_placeholder" android:textAlignment="center" android:textColor="@color/library_placeholder_text" android:textSize="11sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="5dp" android:background="@drawable/bg_library_badge_vip" android:fontFamily="serif" android:text="@string/library_badge_vip" android:textColor="@android:color/white" android:textSize="11sp" />
+                        </FrameLayout>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_book_tay_du_ky" android:textColor="@color/library_text_primary" android:textSize="14sp" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_author_ngo_thua_an" android:textColor="@color/library_text_secondary" android:textSize="11sp" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_rating_tay_du_ky" android:textColor="@color/library_star" android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="112dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <FrameLayout android:layout_width="@dimen/library_book_cover_width" android:layout_height="@dimen/library_book_cover_height">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/bg_library_placeholder" android:fontFamily="serif" android:gravity="center" android:padding="8dp" android:text="@string/library_cover_placeholder" android:textAlignment="center" android:textColor="@color/library_placeholder_text" android:textSize="11sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|end" android:layout_margin="5dp" android:background="@drawable/bg_library_badge_free" android:fontFamily="serif" android:text="@string/library_badge_free" android:textColor="@android:color/white" android:textSize="11sp" />
+                        </FrameLayout>
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_book_thuy_hu" android:textColor="@color/library_text_primary" android:textSize="14sp" android:textStyle="bold" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:maxLines="1" android:text="@string/library_author_thi_nai_am" android:textColor="@color/library_text_secondary" android:textSize="11sp" />
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/library_rating_thuy_hu" android:textColor="@color/library_star" android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

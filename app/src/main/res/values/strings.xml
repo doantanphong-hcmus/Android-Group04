@@ -62,6 +62,7 @@
     <string name="library_filter_new">Mới cập nhật</string>
     <string name="library_filter_free">Miễn phí</string>
     <string name="library_filter_vip">VIP</string>
+    <string name="library_filter_empty">Chưa có tác phẩm phù hợp.</string>
     <string name="library_featured_title">Tam Quốc Diễn Nghĩa</string>
     <string name="library_featured_subtitle">Thiên hạ đại thế…</string>
     <string name="library_watch_now">Khám phá ngay →</string>

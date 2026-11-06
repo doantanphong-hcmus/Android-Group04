@@ -80,7 +80,7 @@ class LibrarySearchFragment : Fragment(R.layout.fragment_library_search) {
 
     private fun createResultView(
         parent: LinearLayout,
-        book: LibrarySampleBook,
+        book: LibraryBook,
     ): View {
         val resultView =
             LayoutInflater

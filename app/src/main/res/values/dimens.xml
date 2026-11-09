@@ -13,4 +13,5 @@
     <dimen name="library_search_height">48dp</dimen>
     <dimen name="library_book_cover_width">96dp</dimen>
     <dimen name="library_book_cover_height">128dp</dimen>
+    <dimen name="community_avatar_size">48dp</dimen>
 </resources>

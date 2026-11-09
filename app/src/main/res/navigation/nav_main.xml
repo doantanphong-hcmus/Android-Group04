@@ -38,4 +38,14 @@
         android:id="@+id/homeFragment"
         android:name="com.tangkinhcac.app.feature.home.HomeFragment"
         android:label="Home" />
+
+    <fragment
+        android:id="@+id/communityPostDetailFragment"
+        android:name="com.tangkinhcac.app.feature.community.CommunityPostDetailFragment"
+        android:label="Community post detail" />
+
+    <fragment
+        android:id="@+id/communityCreatePostFragment"
+        android:name="com.tangkinhcac.app.feature.community.CommunityCreatePostFragment"
+        android:label="Create community post" />
 </navigation>

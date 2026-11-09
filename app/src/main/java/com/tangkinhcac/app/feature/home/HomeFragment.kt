@@ -13,6 +13,8 @@ import com.tangkinhcac.app.feature.library.LibraryFragment
 import com.tangkinhcac.app.ui.applySystemBarPadding
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+    private var selectedTabId = R.id.navigation_home
+
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?,
@@ -22,8 +24,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val homeRoot = view.findViewById<View>(R.id.home_root)
         homeRoot.applySystemBarPadding()
 
+        selectedTabId = savedInstanceState?.getInt(KEY_SELECTED_TAB_ID) ?: selectedTabId
         val bottomNavigation = view.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.selectedItemId = selectedTabId
         bottomNavigation.setOnItemSelectedListener { item ->
+            selectedTabId = item.itemId
             showTab(item.itemId)
             true
         }
@@ -33,10 +38,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
 
-        if (savedInstanceState == null) {
-            bottomNavigation.selectedItemId = R.id.navigation_home
-            showTab(R.id.navigation_home)
-        }
+        showTab(selectedTabId)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(KEY_SELECTED_TAB_ID, selectedTabId)
+        super.onSaveInstanceState(outState)
     }
 
     private fun showTab(itemId: Int) {
@@ -60,5 +67,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             .replace(R.id.main_content_container, fragment)
             .setPrimaryNavigationFragment(fragment)
             .commit()
+    }
+
+    companion object {
+        private const val KEY_SELECTED_TAB_ID = "selected_tab_id"
     }
 }

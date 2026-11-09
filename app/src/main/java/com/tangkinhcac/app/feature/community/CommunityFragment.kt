@@ -27,6 +27,13 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
         CommunityFeedCatalog.posts.forEach { post ->
             postsContainer.addView(createPostView(postsContainer, post))
         }
+
+        view.findViewById<View>(R.id.community_composer).setOnClickListener { openCreatePost() }
+        view.findViewById<View>(R.id.community_create_post).setOnClickListener { openCreatePost() }
+    }
+
+    private fun openCreatePost() {
+        requireActivity().findNavController(R.id.main_nav_host).navigate(R.id.communityCreatePostFragment)
     }
 
     private fun createPostView(

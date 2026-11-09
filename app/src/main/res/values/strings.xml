@@ -129,4 +129,19 @@
     <string name="community_comment_ha_lien">Theo mình là gian hùng, vì mục tiêu của ông ấy luôn là quyền lực, bất chấp thủ đoạn.</string>
     <string name="community_comment_trong_hieu">Đồng ý ông ấy có nhiều mặt tàn nhẫn, nhưng cũng không thể phủ nhận tài trị quốc và tầm nhìn chiến lược. Mình nghĩ ông ấy là một anh hùng theo nghĩa thực dụng.</string>
     <string name="community_comment_mai_anh">Mình thấy Tào Tháo là nhân vật rất “người”. Vừa tham vọng, vừa đa nghi, nhưng cũng rất biết trọng dụng nhân tài.</string>
+    <string name="community_create_title">Viết bài mới</string>
+    <string name="community_create_content_hint">Chia sẻ cảm nghĩ của bạn…</string>
+    <string name="community_create_work">Tác phẩm</string>
+    <string name="community_create_default_work">Hồng Lâu Mộng</string>
+    <string name="community_create_photo">Ảnh</string>
+    <string name="community_create_add_photo">+ Thêm ảnh</string>
+    <string name="community_create_photo_added">Đã thêm 1 ảnh</string>
+    <string name="community_create_selected_photo">Ảnh đã chọn cho bài viết</string>
+    <string name="community_create_remove_photo">Xóa ảnh đã chọn</string>
+    <string name="community_create_audience">Ai có thể xem</string>
+    <string name="community_create_audience_public">Công khai</string>
+    <string name="community_create_audience_private">Chỉ mình tôi</string>
+    <string name="community_create_preview">Xem trước trong Cộng đồng</string>
+    <string name="community_create_save_draft">Lưu nháp</string>
+    <string name="community_create_publish">Đăng</string>
 </resources>

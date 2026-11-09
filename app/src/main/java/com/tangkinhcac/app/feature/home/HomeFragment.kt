@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tangkinhcac.app.R
+import com.tangkinhcac.app.feature.community.CommunityFragment
 import com.tangkinhcac.app.feature.library.LibraryFragment
 import com.tangkinhcac.app.ui.applySystemBarPadding
 
@@ -48,10 +49,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             ),
         )
         val fragment =
-            if (itemId == R.id.navigation_library) {
-                LibraryFragment()
-            } else {
-                EmptyTabFragment()
+            when (itemId) {
+                R.id.navigation_community -> CommunityFragment()
+                R.id.navigation_library -> LibraryFragment()
+                else -> EmptyTabFragment()
             }
 
         childFragmentManager

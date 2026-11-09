@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/community_background"
+    tools:ignore="Overdraw">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="80dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="188dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="132dp"
+                    android:alpha="0.76"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/community_header_art" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="serif"
+                    android:text="@string/community_title"
+                    android:textColor="@color/community_text_primary"
+                    android:textSize="31sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="66dp"
+                    android:fontFamily="serif"
+                    android:text="@string/community_subtitle"
+                    android:textColor="@color/community_text_primary"
+                    android:textSize="13sp" />
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="top|end"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="18dp"
+                    android:background="@drawable/bg_community_circle"
+                    android:contentDescription="@string/community_notification_content_description"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_community_notification" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/bg_community_composer"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="12dp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:contentDescription="@null"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/community_avatar_ha_lien"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay_TangKinhCac_Circle"
+                        app:strokeColor="@color/community_avatar_border"
+                        app:strokeWidth="1dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="serif"
+                        android:gravity="center_vertical"
+                        android:text="@string/community_composer_hint"
+                        android:textColor="@color/community_text_secondary"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/community_add_photo_content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_community_photo" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_community_tab_selected"
+                        android:fontFamily="serif"
+                        android:text="@string/community_tab_timeline"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text="@string/community_tab_explore"
+                        android:textColor="@color/community_text_primary"
+                        android:textSize="13sp"
+                        app:drawableStartCompat="@drawable/ic_community_explore" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text="@string/community_tab_following"
+                        android:textColor="@color/community_text_primary"
+                        android:textSize="13sp"
+                        app:drawableStartCompat="@drawable/ic_community_follow" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text="@string/community_tab_topics"
+                        android:textColor="@color/community_text_primary"
+                        android:textSize="13sp"
+                        app:drawableStartCompat="@drawable/ic_community_topic" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="92dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="16dp"
+                android:background="@color/community_accent" />
+
+            <LinearLayout
+                android:id="@+id/community_posts_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageButton
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/bg_community_fab"
+        android:contentDescription="@string/community_create_post_content_description"
+        android:elevation="8dp"
+        android:padding="15dp"
+        android:src="@drawable/ic_community_plus" />
+</FrameLayout>

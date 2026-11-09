@@ -144,4 +144,10 @@
     <string name="community_create_preview">Xem trước trong Cộng đồng</string>
     <string name="community_create_save_draft">Lưu nháp</string>
     <string name="community_create_publish">Đăng</string>
+    <string name="community_action_like">Thích bài viết</string>
+    <string name="community_action_unlike">Bỏ thích bài viết</string>
+    <string name="community_action_repost">Đăng lại bài viết</string>
+    <string name="community_action_undo_repost">Hủy đăng lại bài viết</string>
+    <string name="community_action_bookmark">Đánh dấu bài viết</string>
+    <string name="community_action_remove_bookmark">Bỏ đánh dấu bài viết</string>
 </resources>

@@ -49,9 +49,13 @@ class CommunityFragment : Fragment(R.layout.fragment_community) {
         postView.findViewById<TextView>(R.id.community_post_author).setText(post.authorResId)
         postView.findViewById<TextView>(R.id.community_post_time).setText(post.timeResId)
         postView.findViewById<TextView>(R.id.community_post_content).text = post.styledContent()
-        postView.findViewById<TextView>(R.id.community_post_like_count).text = formattedCount(post.likeCount)
         postView.findViewById<TextView>(R.id.community_post_comment_count).text = formattedCount(post.commentCount)
-        postView.findViewById<TextView>(R.id.community_post_repost_count).text = formattedCount(post.repostCount)
+        postView.bindCommunityPostActions(
+            post = post,
+            likeViewId = R.id.community_post_like_count,
+            repostViewId = R.id.community_post_repost_count,
+            bookmarkViewId = R.id.community_post_bookmark,
+        )
 
         postView.findViewById<ImageView>(R.id.community_post_image).apply {
             isVisible = post.imageResId != null

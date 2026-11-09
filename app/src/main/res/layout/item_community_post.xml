@@ -165,9 +165,12 @@
             app:drawableStartCompat="@drawable/ic_community_repost" />
 
         <ImageView
+            android:id="@+id/community_post_bookmark"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:contentDescription="@null"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/community_action_bookmark"
+            android:focusable="true"
             android:padding="8dp"
             android:src="@drawable/ic_community_bookmark" />
     </LinearLayout>

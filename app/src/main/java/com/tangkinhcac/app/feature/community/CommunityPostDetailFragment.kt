@@ -32,9 +32,13 @@ class CommunityPostDetailFragment : Fragment(R.layout.fragment_community_post_de
         view.findViewById<TextView>(R.id.community_detail_author).setText(post.authorResId)
         view.findViewById<TextView>(R.id.community_detail_time).setText(post.timeResId)
         view.findViewById<TextView>(R.id.community_detail_content).text = post.styledContent()
-        view.findViewById<TextView>(R.id.community_detail_like_count).text = formattedCount(post.likeCount)
         view.findViewById<TextView>(R.id.community_detail_comment_count).text = formattedCount(post.commentCount)
-        view.findViewById<TextView>(R.id.community_detail_repost_count).text = formattedCount(post.repostCount)
+        view.bindCommunityPostActions(
+            post = post,
+            likeViewId = R.id.community_detail_like_count,
+            repostViewId = R.id.community_detail_repost_count,
+            bookmarkViewId = R.id.community_detail_bookmark,
+        )
         view.findViewById<TextView>(R.id.community_detail_comment_title).text =
             getString(R.string.community_comments_count, post.commentCount)
 

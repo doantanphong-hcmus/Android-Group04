@@ -21,38 +21,45 @@ internal data class RankingEntry(
 )
 
 internal object RankingsMockData {
-    private data class BookScore(
-        val bookId: String,
-        val readCount: Int,
-        val listenCount: Int,
-    )
-
-    private val scores =
+    private val readOrder =
         listOf(
-            BookScore("truyen-kieu", readCount = 12_400, listenCount = 3_800),
-            BookScore("tam-quoc-dien-nghia", readCount = 10_800, listenCount = 4_100),
-            BookScore("tay-du-ky", readCount = 9_700, listenCount = 3_600),
-            BookScore("truyen-ky-man-luc", readCount = 8_900, listenCount = 2_700),
-            BookScore("thuy-hu", readCount = 8_100, listenCount = 3_200),
-            BookScore("hoang-le-nhat-thong-chi", readCount = 6_900, listenCount = 2_400),
-            BookScore("kim-ngao-tan-thoai", readCount = 6_300, listenCount = 2_200),
-            BookScore("hong-cat-dong-truyen", readCount = 5_800, listenCount = 2_100),
+            "truyen-kieu",
+            "tam-quoc-dien-nghia",
+            "tay-du-ky",
+            "truyen-ky-man-luc",
+            "thuy-hu",
+            "hoang-le-nhat-thong-chi",
+            "kim-ngao-tan-thoai",
+            "hong-cat-dong-truyen",
+        )
+    private val listenOrder =
+        listOf(
+            "tam-quoc-dien-nghia",
+            "truyen-kieu",
+            "tay-du-ky",
+            "thuy-hu",
+            "truyen-ky-man-luc",
+            "hoang-le-nhat-thong-chi",
+            "kim-ngao-tan-thoai",
+            "hong-cat-dong-truyen",
         )
 
     fun rankings(
         period: RankingsPeriod,
         metric: RankingsMetric,
-    ): List<RankingEntry> =
-        scores
-            .map { score ->
-                val baseCount =
-                    when (metric) {
-                        RankingsMetric.READ -> score.readCount
-                        RankingsMetric.LISTEN -> score.listenCount
-                    }
-                RankingEntry(
-                    bookId = score.bookId,
-                    count = (baseCount * period.multiplier).roundToInt(),
-                )
-            }.sortedByDescending(RankingEntry::count)
+    ): List<RankingEntry> {
+        val bookOrder = if (metric == RankingsMetric.READ) readOrder else listenOrder
+        val startingCount = if (metric == RankingsMetric.READ) 12_400 else 4_100
+        val countStep = if (metric == RankingsMetric.READ) 420 else 120
+
+        // shortcut: cycle eight supplied books to exercise 20 rows, stop cycling when the catalog has 20 titles.
+        return List(RANKING_SIZE) { index ->
+            RankingEntry(
+                bookId = bookOrder[index % bookOrder.size],
+                count = ((startingCount - index * countStep) * period.multiplier).roundToInt(),
+            )
+        }
+    }
+
+    private const val RANKING_SIZE = 20
 }

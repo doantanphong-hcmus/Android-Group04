@@ -8,39 +8,59 @@
     android:background="@color/rankings_background"
     tools:ignore="Overdraw">
 
+    <FrameLayout
+        android:id="@+id/rankings_header"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/rankings_back_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/rankings_back_content_description"
+            android:padding="12dp"
+            android:src="@drawable/ic_library_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="@string/rankings_title"
+            android:textColor="@color/rankings_text_primary"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@id/rankings_bottom_navigation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/rankings_header">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingStart="20dp"
-            android:paddingTop="24dp"
+            android:paddingTop="8dp"
             android:paddingEnd="20dp"
-            android:paddingBottom="16dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:gravity="center"
-                android:text="@string/rankings_title"
-                android:textColor="@color/rankings_text_primary"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+            android:paddingBottom="24dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:layout_marginTop="24dp"
                 android:background="@drawable/bg_rankings_segment_container"
                 android:orientation="horizontal"
                 android:padding="2dp">
@@ -88,21 +108,5 @@
                 android:orientation="vertical" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/rankings_bottom_navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/navigation_background"
-        android:elevation="@dimen/navigation_elevation"
-        app:itemActiveIndicatorStyle="@null"
-        app:itemHorizontalTranslationEnabled="false"
-        app:itemIconTint="@color/navigation_item_color"
-        app:itemTextColor="@color/navigation_item_color"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_rankings_bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

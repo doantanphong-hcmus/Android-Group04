@@ -8,7 +8,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.tangkinhcac.app.R
 import com.tangkinhcac.app.feature.library.LibrarySearchCatalog
 import com.tangkinhcac.app.ui.applySystemBarPadding
@@ -24,9 +23,9 @@ class RankingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rankings)
 
         findViewById<View>(R.id.rankings_root).applySystemBarPadding()
+        findViewById<View>(R.id.rankings_back_button).setOnClickListener { finish() }
         bindPeriodControls()
         bindMetricControls()
-        bindPrototypeNavigation()
         renderRankings()
     }
 
@@ -61,13 +60,6 @@ class RankingsActivity : AppCompatActivity() {
             }
         }
         controls.forEach { (id, value) -> findViewById<View>(id).isSelected = value == selectedMetric }
-    }
-
-    private fun bindPrototypeNavigation() {
-        findViewById<BottomNavigationView>(R.id.rankings_bottom_navigation).apply {
-            setOnItemSelectedListener { item -> item.itemId == R.id.navigation_rankings }
-            selectedItemId = R.id.navigation_rankings
-        }
     }
 
     private fun renderRankings() {

@@ -34,4 +34,11 @@
     <color name="community_like_active">#C9362E</color>
     <color name="community_repost_active">#D87824</color>
     <color name="community_bookmark_active">#E4AD27</color>
+    <color name="rankings_background">#FFF9EF</color>
+    <color name="rankings_surface">#FFFCF6</color>
+    <color name="rankings_text_primary">#3D2B20</color>
+    <color name="rankings_text_secondary">#756357</color>
+    <color name="rankings_accent">#B63829</color>
+    <color name="rankings_border">#E7D7C2</color>
+    <color name="home_rankings_test_button">#1976D2</color>
 </resources>

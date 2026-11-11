@@ -5,6 +5,7 @@
     <string name="navigation_library">Thư viện</string>
     <string name="navigation_article">Bài viết</string>
     <string name="navigation_profile">Cá nhân</string>
+    <string name="home_open_rankings_test">Mở Rankings để thử nghiệm</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Mật khẩu</string>
     <string name="login_button">Đăng nhập  →</string>
@@ -150,4 +151,14 @@
     <string name="community_action_undo_repost">Hủy đăng lại bài viết</string>
     <string name="community_action_bookmark">Đánh dấu bài viết</string>
     <string name="community_action_remove_bookmark">Bỏ đánh dấu bài viết</string>
+    <string name="rankings_title">Bảng xếp hạng</string>
+    <string name="rankings_back_content_description">Quay lại màn hình trước</string>
+    <string name="rankings_period_day">Ngày</string>
+    <string name="rankings_period_week">Tuần</string>
+    <string name="rankings_period_month">Tháng</string>
+    <string name="rankings_metric_read">Đọc nhiều</string>
+    <string name="rankings_metric_listen">Nghe nhiều</string>
+    <string name="rankings_position">%1$d</string>
+    <string name="rankings_read_count">%1$s lượt đọc</string>
+    <string name="rankings_listen_count">%1$s lượt nghe</string>
 </resources>

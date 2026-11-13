@@ -1,8 +1,12 @@
 # Hybrid Data Storage Decision
 
-- **Status:** Accepted
+- **Status:** Superseded
 - **Date:** 2026-10-30
+- **Superseded on:** 2026-11-13
+- **Replaced by:** [Laravel Backend Architecture Decision](laravel_backend_architecture.md)
 - **Scope:** Application data, offline data, and media storage
+
+> This document is retained as historical context. Firebase is no longer part of the target architecture.
 
 ## Context
 

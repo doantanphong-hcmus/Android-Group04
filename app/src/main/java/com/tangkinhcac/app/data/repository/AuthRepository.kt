@@ -3,7 +3,7 @@ package com.tangkinhcac.app.data.repository
 import com.tangkinhcac.app.data.model.RegistrationRequest
 
 /**
- * Defines authentication operations without exposing Firebase types to the UI layer.
+ * Defines authentication operations without exposing transport or provider types to the UI layer.
  */
 interface AuthRepository {
     val hasAuthenticatedUser: Boolean
@@ -31,6 +31,7 @@ interface AuthRepository {
         INVALID_CREDENTIALS,
         NETWORK,
         TOO_MANY_REQUESTS,
+        SERVICE_UNAVAILABLE,
         UNKNOWN,
     }
 

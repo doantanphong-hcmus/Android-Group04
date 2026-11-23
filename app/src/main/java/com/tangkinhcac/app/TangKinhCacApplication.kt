@@ -1,12 +1,10 @@
 package com.tangkinhcac.app
 
 import android.app.Application
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.tangkinhcac.app.data.local.TangKinhCacDatabase
 import com.tangkinhcac.app.data.repository.AuthRepository
-import com.tangkinhcac.app.data.repository.FirebaseAuthRepository
+import com.tangkinhcac.app.data.repository.UnavailableAuthRepository
 
 class TangKinhCacApplication : Application() {
     // Storage services stay lazy so application startup does not open resources before a repository needs them.
@@ -18,11 +16,8 @@ class TangKinhCacApplication : Application() {
         FirebaseStorage.getInstance()
     }
 
-    // A single repository instance keeps Firebase construction out of Activities, Fragments, and ViewModels.
+    // Keep one repository instance at the application boundary until the backend client is connected.
     val authRepository: AuthRepository by lazy {
-        FirebaseAuthRepository(
-            firebaseAuth = FirebaseAuth.getInstance(),
-            firestore = FirebaseFirestore.getInstance(),
-        )
+        UnavailableAuthRepository()
     }
 }

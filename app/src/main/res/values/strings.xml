@@ -19,6 +19,7 @@
     <string name="login_error_invalid_credentials">Email hoặc mật khẩu không đúng.</string>
     <string name="login_error_network">Không thể kết nối. Vui lòng kiểm tra Internet.</string>
     <string name="login_error_too_many_requests">Bạn đã thử quá nhiều lần. Vui lòng thử lại sau.</string>
+    <string name="login_error_service_unavailable">Hệ thống đăng nhập chưa sẵn sàng. Vui lòng thử lại sau.</string>
     <string name="login_error_unknown">Đăng nhập thất bại. Vui lòng thử lại.</string>
     <string name="register_back_content_description">Quay lại màn hình đăng nhập</string>
     <string name="register_title">Đăng ký tài khoản</string>

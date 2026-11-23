@@ -13,6 +13,7 @@ data class LoginUiState(
         INVALID_CREDENTIALS,
         NETWORK,
         TOO_MANY_REQUESTS,
+        SERVICE_UNAVAILABLE,
         UNKNOWN,
     }
 }

@@ -30,7 +30,7 @@ class RegisterViewModel(
         password: String,
         confirmPassword: String,
     ) {
-        // Prevent duplicate Firebase accounts when the user taps the button repeatedly.
+        // Prevent duplicate registration requests when the user taps the button repeatedly.
         if (_uiState.value.isLoading) {
             return
         }

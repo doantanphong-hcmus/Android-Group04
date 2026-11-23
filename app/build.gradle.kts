@@ -60,8 +60,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.sqlite.framework)

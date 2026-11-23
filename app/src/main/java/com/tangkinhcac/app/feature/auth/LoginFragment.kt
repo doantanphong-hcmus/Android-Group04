@@ -108,6 +108,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 LoginUiState.Error.INVALID_CREDENTIALS -> R.string.login_error_invalid_credentials
                 LoginUiState.Error.NETWORK -> R.string.login_error_network
                 LoginUiState.Error.TOO_MANY_REQUESTS -> R.string.login_error_too_many_requests
+                LoginUiState.Error.SERVICE_UNAVAILABLE -> R.string.login_error_service_unavailable
                 LoginUiState.Error.UNKNOWN -> R.string.login_error_unknown
             },
         )

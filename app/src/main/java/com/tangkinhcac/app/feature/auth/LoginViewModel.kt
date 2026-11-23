@@ -19,7 +19,7 @@ class LoginViewModel(
         email: String,
         password: String,
     ) {
-        // Ignore repeated taps while Firebase is still handling the current request.
+        // Ignore repeated taps while the authentication service is handling the current request.
         if (_uiState.value.isLoading) {
             return
         }
@@ -72,6 +72,7 @@ class LoginViewModel(
             AuthRepository.FailureReason.INVALID_CREDENTIALS -> LoginUiState.Error.INVALID_CREDENTIALS
             AuthRepository.FailureReason.NETWORK -> LoginUiState.Error.NETWORK
             AuthRepository.FailureReason.TOO_MANY_REQUESTS -> LoginUiState.Error.TOO_MANY_REQUESTS
+            AuthRepository.FailureReason.SERVICE_UNAVAILABLE -> LoginUiState.Error.SERVICE_UNAVAILABLE
             AuthRepository.FailureReason.UNKNOWN -> LoginUiState.Error.UNKNOWN
         }
 

@@ -71,6 +71,23 @@ class LoginViewModelTest {
         assertFalse(viewModel.uiState.value.isAuthenticated)
     }
 
+    @Test
+    fun `unavailable service becomes user interface service error`() {
+        viewModel.signIn(
+            email = "reader@example.com",
+            password = "123456",
+        )
+
+        repository.complete(
+            AuthRepository.SignInResult.Failure(
+                AuthRepository.FailureReason.SERVICE_UNAVAILABLE,
+            ),
+        )
+
+        assertEquals(LoginUiState.Error.SERVICE_UNAVAILABLE, viewModel.uiState.value.error)
+        assertFalse(viewModel.uiState.value.isLoading)
+    }
+
     private class FakeAuthRepository : AuthRepository {
         override val hasAuthenticatedUser = false
 

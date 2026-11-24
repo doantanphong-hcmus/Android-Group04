@@ -7,7 +7,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -45,8 +44,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         content.applySystemBarPadding()
 
-        emailEditText.doAfterTextChanged { viewModel.clearError() }
-        passwordEditText.doAfterTextChanged { viewModel.clearError() }
+        emailEditText.doAfterImeTextCommitted { viewModel.clearError() }
+        passwordEditText.doAfterImeTextCommitted { viewModel.clearError() }
 
         loginButton.setOnClickListener {
             viewModel.signIn(

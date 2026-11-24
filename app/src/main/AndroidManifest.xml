@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Firebase Authentication needs network access. -->
+    <!-- Backend authentication and remote content require network access. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

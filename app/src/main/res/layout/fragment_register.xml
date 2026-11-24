@@ -93,7 +93,7 @@
                         android:fontFamily="serif"
                         android:hint="@string/register_full_name_hint"
                         android:imeOptions="actionNext"
-                        android:inputType="textCapWords|textPersonName"
+                        android:inputType="textCapWords"
                         android:maxLines="1"
                         android:textColor="@color/auth_text_primary"
                         android:textColorHint="@color/auth_text_primary"

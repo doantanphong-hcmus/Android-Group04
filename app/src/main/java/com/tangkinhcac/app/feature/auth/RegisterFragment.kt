@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -70,7 +69,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         usernameEditText.clearErrorAfterChange(RegisterUiState.Field.USERNAME)
         phoneNumberEditText.clearErrorAfterChange(RegisterUiState.Field.PHONE_NUMBER)
         emailEditText.clearErrorAfterChange(RegisterUiState.Field.EMAIL)
-        passwordEditText.doAfterTextChanged {
+        passwordEditText.doAfterImeTextCommitted {
             viewModel.clearError(RegisterUiState.Field.PASSWORD)
             viewModel.clearError(RegisterUiState.Field.CONFIRM_PASSWORD)
         }
@@ -147,7 +146,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     }
 
     private fun TextInputEditText.clearErrorAfterChange(field: RegisterUiState.Field) {
-        doAfterTextChanged { viewModel.clearError(field) }
+        doAfterImeTextCommitted { viewModel.clearError(field) }
     }
 
     private fun showBirthDatePicker(birthDateEditText: TextInputEditText) {

@@ -18,7 +18,7 @@
     <string name="login_error_password_short">Mật khẩu phải có ít nhất 8 ký tự.</string>
     <string name="login_error_password_long">Mật khẩu không được vượt quá 128 ký tự.</string>
     <string name="login_error_invalid_credentials">Email hoặc mật khẩu không đúng.</string>
-    <string name="login_error_network">Không thể kết nối. Vui lòng kiểm tra Internet.</string>
+    <string name="login_error_network">Không thể kết nối tới máy chủ. Vui lòng thử lại.</string>
     <string name="login_error_too_many_requests">Bạn đã thử quá nhiều lần. Vui lòng thử lại sau.</string>
     <string name="login_error_service_unavailable">Hệ thống đăng nhập chưa sẵn sàng. Vui lòng thử lại sau.</string>
     <string name="login_error_unknown">Đăng nhập thất bại. Vui lòng thử lại.</string>
@@ -49,7 +49,7 @@
     <string name="register_error_password_short">Mật khẩu phải có ít nhất 8 ký tự.</string>
     <string name="register_error_password_long">Mật khẩu không được vượt quá 128 ký tự.</string>
     <string name="register_error_password_mismatch">Mật khẩu nhập lại không khớp.</string>
-    <string name="register_error_network">Không thể kết nối. Vui lòng kiểm tra Internet.</string>
+    <string name="register_error_network">Không thể kết nối tới máy chủ. Vui lòng thử lại.</string>
     <string name="register_error_too_many_requests">Bạn đã thử quá nhiều lần. Vui lòng thử lại sau.</string>
     <string name="register_error_service_unavailable">Hệ thống đăng ký chưa sẵn sàng. Vui lòng liên hệ quản trị viên.</string>
     <string name="register_error_unknown">Đăng ký thất bại. Vui lòng thử lại.</string>

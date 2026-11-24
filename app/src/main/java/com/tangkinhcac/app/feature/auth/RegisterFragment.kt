@@ -202,15 +202,19 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         getString(
             when (this) {
                 RegisterUiState.FieldError.REQUIRED -> R.string.register_error_required
+                RegisterUiState.FieldError.INVALID -> R.string.register_error_invalid
                 RegisterUiState.FieldError.FULL_NAME_TOO_SHORT -> R.string.register_error_full_name_short
+                RegisterUiState.FieldError.FULL_NAME_TOO_LONG -> R.string.register_error_full_name_long
                 RegisterUiState.FieldError.USERNAME_INVALID -> R.string.register_error_username_invalid
                 RegisterUiState.FieldError.USERNAME_ALREADY_USED -> R.string.register_error_username_used
                 RegisterUiState.FieldError.BIRTH_DATE_INVALID -> R.string.register_error_birth_date_invalid
                 RegisterUiState.FieldError.BIRTH_DATE_IN_FUTURE -> R.string.register_error_birth_date_future
                 RegisterUiState.FieldError.PHONE_NUMBER_INVALID -> R.string.register_error_phone_invalid
                 RegisterUiState.FieldError.EMAIL_INVALID -> R.string.register_error_email_invalid
+                RegisterUiState.FieldError.EMAIL_TOO_LONG -> R.string.register_error_email_long
                 RegisterUiState.FieldError.EMAIL_ALREADY_USED -> R.string.register_error_email_used
                 RegisterUiState.FieldError.PASSWORD_TOO_SHORT -> R.string.register_error_password_short
+                RegisterUiState.FieldError.PASSWORD_TOO_LONG -> R.string.register_error_password_long
                 RegisterUiState.FieldError.PASSWORDS_DO_NOT_MATCH -> R.string.register_error_password_mismatch
             },
         )

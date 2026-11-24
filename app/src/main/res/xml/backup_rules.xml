@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <full-backup-content>
-    <!-- Room contains rebuildable cache data whose cloud source of truth is Firestore. -->
+    <!-- Room contains rebuildable cache data whose source of truth is the backend. -->
     <exclude
         domain="database"
         path="." />
+    <!-- Encrypted credentials are device-bound through Android Keystore and must never be backed up. -->
+    <exclude
+        domain="sharedpref"
+        path="auth_credentials.xml" />
 </full-backup-content>

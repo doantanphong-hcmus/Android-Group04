@@ -58,6 +58,22 @@ class RegisterViewModelTest {
     }
 
     @Test
+    fun `values above backend limits are rejected before calling repository`() {
+        register(
+            fullName = "A".repeat(101),
+            email = "a".repeat(256),
+            password = "p".repeat(129),
+            confirmPassword = "p".repeat(129),
+        )
+
+        val errors = viewModel.uiState.value.fieldErrors
+        assertEquals(RegisterUiState.FieldError.FULL_NAME_TOO_LONG, errors.fullName)
+        assertEquals(RegisterUiState.FieldError.EMAIL_TOO_LONG, errors.email)
+        assertEquals(RegisterUiState.FieldError.PASSWORD_TOO_LONG, errors.password)
+        assertEquals(0, repository.registrationCalls)
+    }
+
+    @Test
     fun `future birth date is rejected`() {
         register(birthDate = "01/01/2999")
 
@@ -94,7 +110,6 @@ class RegisterViewModelTest {
         assertEquals(1, repository.registrationCalls)
         assertEquals("Nguyễn Văn An", request.fullName)
         assertEquals("Reader.One", request.username)
-        assertEquals("reader.one", request.normalizedUsername)
         assertEquals("1990-06-15", request.birthDate)
         assertEquals("+84901234567", request.phoneNumber)
         assertEquals("reader@example.com", request.email)
@@ -128,6 +143,25 @@ class RegisterViewModelTest {
             RegisterUiState.FieldError.EMAIL_ALREADY_USED,
             viewModel.uiState.value.fieldErrors.email,
         )
+    }
+
+    @Test
+    fun `backend validation fields appear on matching inputs`() {
+        register()
+        repository.complete(
+            AuthRepository.RegistrationResult.Failure(
+                reason = AuthRepository.RegistrationFailureReason.VALIDATION,
+                invalidFields =
+                    setOf(
+                        AuthRepository.RegistrationField.EMAIL,
+                        AuthRepository.RegistrationField.PASSWORD_CONFIRMATION,
+                    ),
+            ),
+        )
+
+        val errors = viewModel.uiState.value.fieldErrors
+        assertEquals(RegisterUiState.FieldError.INVALID, errors.email)
+        assertEquals(RegisterUiState.FieldError.INVALID, errors.confirmPassword)
     }
 
     @Test
@@ -177,8 +211,8 @@ class RegisterViewModelTest {
         birthDate: String = "15/06/1990",
         phoneNumber: String = "0901234567",
         email: String = "reader@example.com",
-        password: String = "123456",
-        confirmPassword: String = "123456",
+        password: String = "12345678",
+        confirmPassword: String = "12345678",
     ) {
         viewModel.register(
             fullName = fullName,
@@ -217,6 +251,14 @@ class RegisterViewModelTest {
             registrationCalls += 1
             lastRequest = request
             registrationCallback = onResult
+        }
+
+        override fun getCurrentUser(onResult: (AuthRepository.CurrentUserResult) -> Unit) {
+            error("Current user is not used by RegisterViewModel tests")
+        }
+
+        override fun signOut(onResult: (AuthRepository.SignOutResult) -> Unit) {
+            error("Logout is not used by RegisterViewModel tests")
         }
 
         fun complete(result: AuthRepository.RegistrationResult) {

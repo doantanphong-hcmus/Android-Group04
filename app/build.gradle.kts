@@ -6,6 +6,13 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint")
 }
 
+val apiBaseUrl =
+    providers
+        .gradleProperty("TANG_KINH_CAC_API_BASE_URL")
+        .orElse("http://10.0.2.2:8000/api/v1/")
+        .get()
+        .let { value -> if (value.endsWith('/')) value else "$value/" }
+
 android {
     namespace = "com.tangkinhcac.app"
     compileSdk {
@@ -18,6 +25,9 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
+
+        // Override with -PTANG_KINH_CAC_API_BASE_URL=https://host/api/v1/ for another environment.
+        buildConfigField("String", "API_BASE_URL", "\"$apiBaseUrl\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,6 +42,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    buildFeatures {
+        buildConfig = true
     }
     lint {
         disable += "AndroidGradlePluginVersion"
@@ -67,5 +80,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.gson)
     ksp(libs.androidx.room.compiler)
 }

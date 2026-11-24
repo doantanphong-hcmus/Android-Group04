@@ -36,7 +36,7 @@ class RegisterViewModel(
         }
 
         val normalizedFullName = fullName.trim()
-        val normalizedUsername = username.trim().lowercase(Locale.ROOT)
+        val normalizedUsername = username.trim()
         val normalizedPhoneNumber = normalizePhoneNumber(phoneNumber)
         val normalizedEmail = email.trim().lowercase(Locale.ROOT)
         val parsedBirthDate = parseBirthDate(birthDate)
@@ -64,8 +64,7 @@ class RegisterViewModel(
             request =
                 RegistrationRequest(
                     fullName = normalizedFullName,
-                    username = username.trim(),
-                    normalizedUsername = normalizedUsername,
+                    username = normalizedUsername,
                     birthDate = validBirthDate.toString(),
                     phoneNumber = normalizedPhoneNumber,
                     email = normalizedEmail,
@@ -107,6 +106,7 @@ class RegisterViewModel(
                 when {
                     fullName.isEmpty() -> RegisterUiState.FieldError.REQUIRED
                     fullName.length < MIN_FULL_NAME_LENGTH -> RegisterUiState.FieldError.FULL_NAME_TOO_SHORT
+                    fullName.length > MAX_FULL_NAME_LENGTH -> RegisterUiState.FieldError.FULL_NAME_TOO_LONG
                     else -> null
                 },
             username =
@@ -131,6 +131,7 @@ class RegisterViewModel(
             email =
                 when {
                     email.isEmpty() -> RegisterUiState.FieldError.REQUIRED
+                    email.length > MAX_EMAIL_LENGTH -> RegisterUiState.FieldError.EMAIL_TOO_LONG
                     !EMAIL_PATTERN.matches(email) -> RegisterUiState.FieldError.EMAIL_INVALID
                     else -> null
                 },
@@ -138,6 +139,7 @@ class RegisterViewModel(
                 when {
                     password.isEmpty() -> RegisterUiState.FieldError.REQUIRED
                     password.length < MIN_PASSWORD_LENGTH -> RegisterUiState.FieldError.PASSWORD_TOO_SHORT
+                    password.length > MAX_PASSWORD_LENGTH -> RegisterUiState.FieldError.PASSWORD_TOO_LONG
                     else -> null
                 },
             confirmPassword =
@@ -188,6 +190,9 @@ class RegisterViewModel(
                                 ),
                         )
 
+                    AuthRepository.RegistrationFailureReason.VALIDATION ->
+                        invalidFields.toValidationUiState()
+
                     AuthRepository.RegistrationFailureReason.NETWORK ->
                         RegisterUiState(generalError = RegisterUiState.GeneralError.NETWORK)
 
@@ -202,9 +207,38 @@ class RegisterViewModel(
                 }
         }
 
+    private fun Set<AuthRepository.RegistrationField>.toValidationUiState(): RegisterUiState {
+        if (isEmpty()) {
+            return RegisterUiState(generalError = RegisterUiState.GeneralError.UNKNOWN)
+        }
+
+        return RegisterUiState(
+            fieldErrors =
+                RegisterFieldErrors(
+                    fullName = invalidErrorFor(AuthRepository.RegistrationField.FULL_NAME),
+                    username = invalidErrorFor(AuthRepository.RegistrationField.USERNAME),
+                    birthDate = invalidErrorFor(AuthRepository.RegistrationField.BIRTH_DATE),
+                    phoneNumber = invalidErrorFor(AuthRepository.RegistrationField.PHONE_NUMBER),
+                    email = invalidErrorFor(AuthRepository.RegistrationField.EMAIL),
+                    password = invalidErrorFor(AuthRepository.RegistrationField.PASSWORD),
+                    confirmPassword = invalidErrorFor(AuthRepository.RegistrationField.PASSWORD_CONFIRMATION),
+                ),
+        )
+    }
+
+    private fun Set<AuthRepository.RegistrationField>.invalidErrorFor(
+        field: AuthRepository.RegistrationField,
+    ): RegisterUiState.FieldError? =
+        if (field in this) {
+            RegisterUiState.FieldError.INVALID
+        } else {
+            null
+        }
+
     companion object {
         private const val MIN_FULL_NAME_LENGTH = 2
-        private val USERNAME_PATTERN = Regex("^[a-z0-9._]{4,20}$")
+        private const val MAX_FULL_NAME_LENGTH = 100
+        private val USERNAME_PATTERN = Regex("^[A-Za-z0-9._]{4,20}$")
         private val PHONE_NUMBER_PATTERN = Regex("^\\+?[0-9]{9,15}$")
         private val PHONE_NUMBER_SEPARATOR_PATTERN = Regex("[\\s()-]")
         private val BIRTH_DATE_FORMATTER =

@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data-extraction-rules>
     <cloud-backup>
-        <!-- Room contains rebuildable cache data whose cloud source of truth is Firestore. -->
+        <!-- Room contains rebuildable cache data whose source of truth is the backend. -->
         <exclude
             domain="database"
             path="." />
+        <exclude
+            domain="sharedpref"
+            path="auth_credentials.xml" />
     </cloud-backup>
     <device-transfer>
         <exclude
             domain="database"
             path="." />
+        <exclude
+            domain="sharedpref"
+            path="auth_credentials.xml" />
     </device-transfer>
 </data-extraction-rules>

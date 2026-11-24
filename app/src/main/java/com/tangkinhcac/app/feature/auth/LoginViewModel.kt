@@ -64,6 +64,7 @@ class LoginViewModel(
             !EMAIL_PATTERN.matches(email) -> LoginUiState.Error.EMAIL_INVALID
             password.isEmpty() -> LoginUiState.Error.PASSWORD_REQUIRED
             password.length < MIN_PASSWORD_LENGTH -> LoginUiState.Error.PASSWORD_TOO_SHORT
+            password.length > MAX_PASSWORD_LENGTH -> LoginUiState.Error.PASSWORD_TOO_LONG
             else -> null
         }
 

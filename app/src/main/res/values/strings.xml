@@ -15,8 +15,6 @@
     <string name="login_error_email_required">Vui lòng nhập email.</string>
     <string name="login_error_email_invalid">Email không đúng định dạng.</string>
     <string name="login_error_password_required">Vui lòng nhập mật khẩu.</string>
-    <string name="login_error_password_short">Mật khẩu phải có ít nhất 8 ký tự.</string>
-    <string name="login_error_password_long">Mật khẩu không được vượt quá 128 ký tự.</string>
     <string name="login_error_invalid_credentials">Email hoặc mật khẩu không đúng.</string>
     <string name="login_error_network">Không thể kết nối tới máy chủ. Vui lòng thử lại.</string>
     <string name="login_error_too_many_requests">Bạn đã thử quá nhiều lần. Vui lòng thử lại sau.</string>
@@ -27,8 +25,7 @@
     <string name="register_subtitle">Lập tài khoản để lưu lại hành trình đọc sách của bạn</string>
     <string name="register_full_name_hint">Họ và tên</string>
     <string name="register_username_hint">Tên đăng nhập</string>
-    <string name="register_birth_date_hint">Ngày sinh</string>
-    <string name="register_birth_date_picker_title">Chọn ngày sinh</string>
+    <string name="register_birth_date_hint">Ngày sinh (dd/MM/yyyy)</string>
     <string name="register_phone_number_hint">Số điện thoại</string>
     <string name="register_email_hint">Email</string>
     <string name="register_password_hint">Mật khẩu</string>

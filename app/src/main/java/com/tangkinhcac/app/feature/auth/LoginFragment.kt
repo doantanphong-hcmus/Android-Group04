@@ -44,9 +44,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         content.applySystemBarPadding()
 
-        emailEditText.doAfterImeTextCommitted { viewModel.clearError() }
-        passwordEditText.doAfterImeTextCommitted { viewModel.clearError() }
-
         loginButton.setOnClickListener {
             viewModel.signIn(
                 email = emailEditText.text?.toString().orEmpty(),
@@ -103,8 +100,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 LoginUiState.Error.EMAIL_REQUIRED -> R.string.login_error_email_required
                 LoginUiState.Error.EMAIL_INVALID -> R.string.login_error_email_invalid
                 LoginUiState.Error.PASSWORD_REQUIRED -> R.string.login_error_password_required
-                LoginUiState.Error.PASSWORD_TOO_SHORT -> R.string.login_error_password_short
-                LoginUiState.Error.PASSWORD_TOO_LONG -> R.string.login_error_password_long
                 LoginUiState.Error.INVALID_CREDENTIALS -> R.string.login_error_invalid_credentials
                 LoginUiState.Error.NETWORK -> R.string.login_error_network
                 LoginUiState.Error.TOO_MANY_REQUESTS -> R.string.login_error_too_many_requests

@@ -9,8 +9,6 @@ data class LoginUiState(
         EMAIL_REQUIRED,
         EMAIL_INVALID,
         PASSWORD_REQUIRED,
-        PASSWORD_TOO_SHORT,
-        PASSWORD_TOO_LONG,
         INVALID_CREDENTIALS,
         NETWORK,
         TOO_MANY_REQUESTS,

@@ -24,14 +24,14 @@ class LoginViewModelTest {
     }
 
     @Test
-    fun `password below backend minimum is rejected before calling repository`() {
+    fun `short password is forwarded because login policy belongs to backend`() {
         viewModel.signIn(
             email = "reader@example.com",
-            password = "1234567",
+            password = "123",
         )
 
-        assertEquals(LoginUiState.Error.PASSWORD_TOO_SHORT, viewModel.uiState.value.error)
-        assertEquals(0, repository.signInCalls)
+        assertTrue(viewModel.uiState.value.isLoading)
+        assertEquals(1, repository.signInCalls)
     }
 
     @Test

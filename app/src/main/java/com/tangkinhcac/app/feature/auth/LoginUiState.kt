@@ -9,10 +9,10 @@ data class LoginUiState(
         EMAIL_REQUIRED,
         EMAIL_INVALID,
         PASSWORD_REQUIRED,
-        PASSWORD_TOO_SHORT,
         INVALID_CREDENTIALS,
         NETWORK,
         TOO_MANY_REQUESTS,
+        SERVICE_UNAVAILABLE,
         UNKNOWN,
     }
 }

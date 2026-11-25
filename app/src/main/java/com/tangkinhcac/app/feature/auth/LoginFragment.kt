@@ -7,7 +7,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -44,9 +43,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val registerLink = view.findViewById<TextView>(R.id.register_link)
 
         content.applySystemBarPadding()
-
-        emailEditText.doAfterTextChanged { viewModel.clearError() }
-        passwordEditText.doAfterTextChanged { viewModel.clearError() }
 
         loginButton.setOnClickListener {
             viewModel.signIn(
@@ -104,10 +100,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 LoginUiState.Error.EMAIL_REQUIRED -> R.string.login_error_email_required
                 LoginUiState.Error.EMAIL_INVALID -> R.string.login_error_email_invalid
                 LoginUiState.Error.PASSWORD_REQUIRED -> R.string.login_error_password_required
-                LoginUiState.Error.PASSWORD_TOO_SHORT -> R.string.login_error_password_short
                 LoginUiState.Error.INVALID_CREDENTIALS -> R.string.login_error_invalid_credentials
                 LoginUiState.Error.NETWORK -> R.string.login_error_network
                 LoginUiState.Error.TOO_MANY_REQUESTS -> R.string.login_error_too_many_requests
+                LoginUiState.Error.SERVICE_UNAVAILABLE -> R.string.login_error_service_unavailable
                 LoginUiState.Error.UNKNOWN -> R.string.login_error_unknown
             },
         )

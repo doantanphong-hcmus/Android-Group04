@@ -1,6 +1,7 @@
 package com.tangkinhcac.app.feature.auth
 
 import android.os.Bundle
+import android.os.LocaleList
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageButton
@@ -9,25 +10,18 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.datepicker.CalendarConstraints
-import com.google.android.material.datepicker.DateValidatorPointBackward
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.tangkinhcac.app.R
 import com.tangkinhcac.app.TangKinhCacApplication
 import com.tangkinhcac.app.ui.applySystemBarPadding
 import kotlinx.coroutines.launch
-import java.time.Instant
-import java.time.ZoneOffset
-import java.time.format.DateTimeFormatter
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val viewModel: RegisterViewModel by viewModels {
@@ -63,18 +57,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val generalError = view.findViewById<TextView>(R.id.register_general_error)
 
         content.applySystemBarPadding()
+        // Tell compatible keyboards that this field is expected to contain Vietnamese text.
+        fullNameEditText.imeHintLocales = LocaleList.forLanguageTags("vi-VN")
         backButton.setOnClickListener { findNavController().navigateUp() }
-        birthDateEditText.setOnClickListener { showBirthDatePicker(birthDateEditText) }
-
-        fullNameEditText.clearErrorAfterChange(RegisterUiState.Field.FULL_NAME)
-        usernameEditText.clearErrorAfterChange(RegisterUiState.Field.USERNAME)
-        phoneNumberEditText.clearErrorAfterChange(RegisterUiState.Field.PHONE_NUMBER)
-        emailEditText.clearErrorAfterChange(RegisterUiState.Field.EMAIL)
-        passwordEditText.doAfterTextChanged {
-            viewModel.clearError(RegisterUiState.Field.PASSWORD)
-            viewModel.clearError(RegisterUiState.Field.CONFIRM_PASSWORD)
-        }
-        confirmPasswordEditText.clearErrorAfterChange(RegisterUiState.Field.CONFIRM_PASSWORD)
 
         registerButton.setOnClickListener {
             viewModel.register(
@@ -146,31 +131,6 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
     }
 
-    private fun TextInputEditText.clearErrorAfterChange(field: RegisterUiState.Field) {
-        doAfterTextChanged { viewModel.clearError(field) }
-    }
-
-    private fun showBirthDatePicker(birthDateEditText: TextInputEditText) {
-        val constraints =
-            CalendarConstraints
-                .Builder()
-                .setValidator(DateValidatorPointBackward.now())
-                .build()
-        val picker =
-            MaterialDatePicker.Builder
-                .datePicker()
-                .setTitleText(R.string.register_birth_date_picker_title)
-                .setCalendarConstraints(constraints)
-                .build()
-
-        picker.addOnPositiveButtonClickListener { selection ->
-            val selectedDate = Instant.ofEpochMilli(selection).atZone(ZoneOffset.UTC).toLocalDate()
-            birthDateEditText.setText(selectedDate.format(BIRTH_DATE_FORMATTER))
-            viewModel.clearError(RegisterUiState.Field.BIRTH_DATE)
-        }
-        picker.show(parentFragmentManager, BIRTH_DATE_PICKER_TAG)
-    }
-
     private fun scrollToFirstError(
         scroll: NestedScrollView,
         fieldErrors: RegisterFieldErrors,
@@ -202,15 +162,19 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         getString(
             when (this) {
                 RegisterUiState.FieldError.REQUIRED -> R.string.register_error_required
+                RegisterUiState.FieldError.INVALID -> R.string.register_error_invalid
                 RegisterUiState.FieldError.FULL_NAME_TOO_SHORT -> R.string.register_error_full_name_short
+                RegisterUiState.FieldError.FULL_NAME_TOO_LONG -> R.string.register_error_full_name_long
                 RegisterUiState.FieldError.USERNAME_INVALID -> R.string.register_error_username_invalid
                 RegisterUiState.FieldError.USERNAME_ALREADY_USED -> R.string.register_error_username_used
                 RegisterUiState.FieldError.BIRTH_DATE_INVALID -> R.string.register_error_birth_date_invalid
                 RegisterUiState.FieldError.BIRTH_DATE_IN_FUTURE -> R.string.register_error_birth_date_future
                 RegisterUiState.FieldError.PHONE_NUMBER_INVALID -> R.string.register_error_phone_invalid
                 RegisterUiState.FieldError.EMAIL_INVALID -> R.string.register_error_email_invalid
+                RegisterUiState.FieldError.EMAIL_TOO_LONG -> R.string.register_error_email_long
                 RegisterUiState.FieldError.EMAIL_ALREADY_USED -> R.string.register_error_email_used
                 RegisterUiState.FieldError.PASSWORD_TOO_SHORT -> R.string.register_error_password_short
+                RegisterUiState.FieldError.PASSWORD_TOO_LONG -> R.string.register_error_password_long
                 RegisterUiState.FieldError.PASSWORDS_DO_NOT_MATCH -> R.string.register_error_password_mismatch
             },
         )
@@ -224,9 +188,4 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 RegisterUiState.GeneralError.UNKNOWN -> R.string.register_error_unknown
             },
         )
-
-    companion object {
-        private const val BIRTH_DATE_PICKER_TAG = "birth_date_picker"
-        private val BIRTH_DATE_FORMATTER = DateTimeFormatter.ofPattern(BIRTH_DATE_PATTERN)
-    }
 }

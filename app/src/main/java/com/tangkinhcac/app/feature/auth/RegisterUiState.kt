@@ -18,15 +18,19 @@ data class RegisterUiState(
 
     enum class FieldError {
         REQUIRED,
+        INVALID,
         FULL_NAME_TOO_SHORT,
+        FULL_NAME_TOO_LONG,
         USERNAME_INVALID,
         USERNAME_ALREADY_USED,
         BIRTH_DATE_INVALID,
         BIRTH_DATE_IN_FUTURE,
         PHONE_NUMBER_INVALID,
         EMAIL_INVALID,
+        EMAIL_TOO_LONG,
         EMAIL_ALREADY_USED,
         PASSWORD_TOO_SHORT,
+        PASSWORD_TOO_LONG,
         PASSWORDS_DO_NOT_MATCH,
     }
 

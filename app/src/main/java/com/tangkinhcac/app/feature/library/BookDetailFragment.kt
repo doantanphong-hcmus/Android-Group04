@@ -39,7 +39,10 @@ class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
         root: View,
         book: LibraryBook,
     ) {
-        root.findViewById<ImageView>(R.id.book_detail_cover).setImageResource(book.coverResId)
+        root.findViewById<ImageView>(R.id.book_detail_cover).apply {
+            setImageResource(book.coverResId)
+            clipToOutline = true
+        }
         root.findViewById<TextView>(R.id.book_detail_title).text = book.title
         root.findViewById<TextView>(R.id.book_detail_author).text = book.author
         root.findViewById<TextView>(R.id.book_detail_metadata).text =

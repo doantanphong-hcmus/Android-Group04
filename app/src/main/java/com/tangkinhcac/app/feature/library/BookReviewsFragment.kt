@@ -55,7 +55,10 @@ class BookReviewsFragment : Fragment(R.layout.fragment_book_reviews) {
         view.findViewById<ImageButton>(R.id.book_reviews_back).setOnClickListener {
             parentFragmentManager.popBackStack()
         }
-        view.findViewById<ImageView>(R.id.book_reviews_cover).setImageResource(book.coverResId)
+        view.findViewById<ImageView>(R.id.book_reviews_cover).apply {
+            setImageResource(book.coverResId)
+            clipToOutline = true
+        }
         view.findViewById<TextView>(R.id.book_reviews_title).text = book.title
         view.findViewById<TextView>(R.id.book_reviews_rating).text = book.rating.replace('.', ',')
         view.findViewById<TextView>(R.id.book_reviews_count).text =

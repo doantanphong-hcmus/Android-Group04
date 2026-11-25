@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:layout_width="44dp" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/book_review_five_star_label" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+        <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_marginHorizontal="8dp" android:layout_weight="1" android:max="100" android:progress="74" android:progressBackgroundTint="@color/library_border" android:progressTint="@color/library_accent" />
+        <TextView android:layout_width="38dp" android:layout_height="wrap_content" android:fontFamily="serif" android:gravity="end" android:text="@string/book_review_seventy_four_percent" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:layout_width="44dp" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/book_review_four_star_label" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+        <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_marginHorizontal="8dp" android:layout_weight="1" android:max="100" android:progress="16" android:progressBackgroundTint="@color/library_border" android:progressTint="@color/library_accent" />
+        <TextView android:layout_width="38dp" android:layout_height="wrap_content" android:fontFamily="serif" android:gravity="end" android:text="@string/book_review_sixteen_percent" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:layout_width="44dp" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/book_review_three_star_label" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+        <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_marginHorizontal="8dp" android:layout_weight="1" android:max="100" android:progress="6" android:progressBackgroundTint="@color/library_border" android:progressTint="@color/library_accent" />
+        <TextView android:layout_width="38dp" android:layout_height="wrap_content" android:fontFamily="serif" android:gravity="end" android:text="@string/book_review_six_percent" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:layout_width="44dp" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/book_review_two_star_label" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+        <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_marginHorizontal="8dp" android:layout_weight="1" android:max="100" android:progress="2" android:progressBackgroundTint="@color/library_border" android:progressTint="@color/library_accent" />
+        <TextView android:layout_width="38dp" android:layout_height="wrap_content" android:fontFamily="serif" android:gravity="end" android:text="@string/book_review_two_percent" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="28dp" android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:layout_width="44dp" android:layout_height="wrap_content" android:fontFamily="serif" android:text="@string/book_review_one_star_label" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+        <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_height="8dp" android:layout_marginHorizontal="8dp" android:layout_weight="1" android:max="100" android:progress="2" android:progressBackgroundTint="@color/library_border" android:progressTint="@color/library_accent" />
+        <TextView android:layout_width="38dp" android:layout_height="wrap_content" android:fontFamily="serif" android:gravity="end" android:text="@string/book_review_two_percent" android:textColor="@color/library_text_primary" android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

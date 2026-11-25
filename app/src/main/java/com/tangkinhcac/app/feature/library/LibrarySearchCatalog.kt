@@ -156,8 +156,8 @@ internal object LibrarySearchCatalog {
                         "chữ Nôm",
                     ),
                 coverResId = R.drawable.cover_truyen_kieu,
-                rating = "4.9",
-                reviewCount = "1.2k",
+                rating = "4.7",
+                reviewCount = "128",
                 isVip = false,
             ),
             LibraryBook(

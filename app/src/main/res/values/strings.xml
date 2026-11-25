@@ -95,6 +95,55 @@
     <string name="library_genre_other">Khác</string>
     <string name="library_symbol_more">⋮</string>
     <string name="library_symbol_next">›</string>
+    <string name="book_detail_title">Chi tiết sách</string>
+    <string name="book_detail_cover_description">Bìa sách</string>
+    <string name="book_detail_add_bookmark">Đánh dấu sách</string>
+    <string name="book_detail_remove_bookmark">Bỏ đánh dấu sách</string>
+    <string name="book_detail_metadata_format">%1$s  ·  %2$s</string>
+    <string name="book_detail_rating_format">★  %1$s  ·  %2$s đánh giá  ›</string>
+    <string name="book_detail_introduction">┃ Giới thiệu</string>
+    <string name="book_detail_read_more">Đọc thêm</string>
+    <string name="book_detail_collapse">Thu gọn</string>
+    <string name="book_detail_reader_reviews">┃ Đánh giá độc giả</string>
+    <string name="book_detail_rating_summary">4,7  ★★★★★  ·  128 đánh giá</string>
+    <string name="book_detail_stars">★★★★☆</string>
+    <string name="book_detail_review_count">%1$s đánh giá</string>
+    <string name="book_detail_view_all_reviews">Xem tất cả</string>
+    <string name="book_detail_write_review">Viết đánh giá</string>
+    <string name="book_detail_write_review_button">✎  Viết đánh giá</string>
+    <string name="book_detail_read_book">▱  Đọc sách</string>
+    <string name="book_detail_listen_book">♧  Nghe sách</string>
+    <string name="book_detail_content_unavailable">Nội dung sách đang được cập nhật.</string>
+    <string name="book_detail_mock_review_one_author">Minh Anh</string>
+    <string name="book_detail_mock_review_one_rating">★★★★★  5,0</string>
+    <string name="book_detail_mock_review_one_comment">Ngôn từ quá đẹp, giàu cảm xúc. Đọc lại vẫn thấy thấm thía số phận Thúy Kiều.</string>
+    <string name="book_detail_mock_review_two_author">Gia Hân</string>
+    <string name="book_detail_mock_review_two_comment">Tác phẩm lớn của văn học Việt Nam, vừa giàu giá trị nghệ thuật vừa sâu sắc về con người.</string>
+    <string name="book_review_sort_latest">Sắp xếp: Mới nhất  ▾</string>
+    <string name="book_review_today">Hôm nay</string>
+    <string name="book_review_two_days_ago">2 ngày trước</string>
+    <string name="book_review_minh_anh_initials">MA</string>
+    <string name="book_review_gia_han_initials">GH</string>
+    <string name="book_review_five_stars">★★★★★</string>
+    <string name="book_review_five_star_label">5 sao</string>
+    <string name="book_review_four_star_label">4 sao</string>
+    <string name="book_review_three_star_label">3 sao</string>
+    <string name="book_review_two_star_label">2 sao</string>
+    <string name="book_review_one_star_label">1 sao</string>
+    <string name="book_review_seventy_four_percent" formatted="false">74%</string>
+    <string name="book_review_sixteen_percent" formatted="false">16%</string>
+    <string name="book_review_six_percent" formatted="false">6%</string>
+    <string name="book_review_two_percent" formatted="false">2%</string>
+    <string name="book_review_you_initials">B</string>
+    <string name="book_review_you">Bạn</string>
+    <string name="book_review_just_now">Vừa xong</string>
+    <string name="book_review_sheet_title">Đánh giá %1$s</string>
+    <string name="book_review_rating_empty">Chọn số sao</string>
+    <string name="book_review_rating_value">%1$d/5</string>
+    <string name="book_review_rating_required">Vui lòng chọn số sao</string>
+    <string name="book_review_comment_label">Nhận xét (không bắt buộc)</string>
+    <string name="book_review_comment_hint">Chia sẻ cảm nhận của bạn…</string>
+    <string name="book_review_submit">Gửi đánh giá</string>
     <string name="community_title">Cộng đồng</string>
     <string name="community_subtitle">Cùng đọc, cùng nghĩ, cùng bàn luận.</string>
     <string name="community_notification_content_description">Thông báo</string>

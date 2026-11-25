@@ -137,8 +137,21 @@ class LibraryFragment : Fragment(R.layout.fragment_library) {
                     },
                 )
             }
+            if (book.id == TRUYEN_KIEU_ID) {
+                bookView.setOnClickListener { openBookDetail(book.id) }
+            }
             booksContainer.addView(bookView)
         }
+    }
+
+    private fun openBookDetail(bookId: String) {
+        val fragment = BookDetailFragment.newInstance(bookId)
+        parentFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_content_container, fragment)
+            .setPrimaryNavigationFragment(fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     private fun openSearch(query: String) {
@@ -152,6 +165,7 @@ class LibraryFragment : Fragment(R.layout.fragment_library) {
     }
 
     companion object {
+        private const val TRUYEN_KIEU_ID = "truyen-kieu"
         private const val UNSELECTED_FILTER_ALPHA = 0.45f
     }
 }

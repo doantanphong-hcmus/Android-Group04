@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_book_review_sheet"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="20dp">
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_book_review_handle" />
+
+    <TextView
+        android:id="@+id/book_review_sheet_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:textColor="@color/library_text_primary"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <RatingBar
+        android:id="@+id/book_review_sheet_rating"
+        style="?android:attr/ratingBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="1" />
+
+    <TextView
+        android:id="@+id/book_review_sheet_rating_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/book_review_rating_empty"
+        android:textColor="@color/library_text_primary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="serif"
+        android:text="@string/book_review_comment_label"
+        android:textColor="@color/library_text_primary"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/book_review_sheet_comment"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_book_review_input"
+        android:fontFamily="serif"
+        android:gravity="top|start"
+        android:hint="@string/book_review_comment_hint"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="500"
+        android:padding="14dp"
+        android:textColor="@color/library_text_primary"
+        android:textColorHint="@color/library_text_secondary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/book_review_sheet_submit"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_library_primary_button"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/book_review_submit"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+</LinearLayout>

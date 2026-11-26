@@ -45,7 +45,7 @@ val uiState = _uiState.asStateFlow()
 
 ```kotlin
 interface BookRepository
-class FirebaseBookRepository : BookRepository
+class BackendBookRepository : BookRepository
 ```
 
 ## 3. File and Type Naming
@@ -83,14 +83,14 @@ Use lowercase `snake_case` for every Android resource.
 The application uses a single-activity MVVM architecture with repositories:
 
 ```text
-Fragment → ViewModel → Repository interface → Firebase implementation
+Fragment → ViewModel → Repository interface → Gateway interface → Retrofit/OkHttp → Laravel API
 ```
 
 ### Fragment
 
 - Renders state and forwards user actions to the ViewModel.
 - Contains navigation and Android view code only.
-- Must not call Firebase directly or contain business rules.
+- Must not call gateways, Retrofit, or Room directly or contain business rules.
 - Collects observable state with the view lifecycle.
 
 ### ViewModel
@@ -103,13 +103,13 @@ Fragment → ViewModel → Repository interface → Firebase implementation
 ### Repository
 
 - Defines domain-focused operations such as `login()` or `getPublishedBooks()`.
-- Keeps Firebase SDK calls inside concrete Firebase repository classes.
-- Must not expose `DocumentSnapshot`, `QuerySnapshot`, or other Firestore implementation details to UI code.
+- Keeps HTTP calls behind a gateway interface; Retrofit code lives only in `Retrofit*Gateway` classes.
+- Must not expose Retrofit responses, API DTOs, HTTP status codes, or other transport details to UI code.
 - Returns explicit success or failure through `Result`, a project result type, or a documented stream.
 
 ### Models and UI state
 
-- Use immutable `data class` models with safe defaults when Firestore deserialization requires them.
+- Use immutable `data class` models. Keep API DTOs in `*ApiModels.kt`, separate from application models.
 - Keep screen-only properties in UI state, not in data models.
 - Name UI state properties consistently: `isLoading`, `data`, and `errorMessage` where appropriate.
 - Create a new package only when its first real class is added.
@@ -146,22 +146,18 @@ Fragment → ViewModel → Repository interface → Firebase implementation
 
 ## 8. Error Handling and Logging
 
-- Validate user input before calling Firebase.
+- Validate user input in the ViewModel before calling the repository.
 - Show user-friendly messages; do not display raw exception messages directly in the UI.
 - Preserve the original exception for logs or debugging when useful.
 - Do not log passwords, authentication tokens, personal content, or full payment data.
 - Use one consistent tag per class when logging is necessary.
 - Remove temporary debug logs before merging.
 
-## 9. Firebase Rules
+## 9. Security
 
-- Treat the Android client as untrusted.
-- Keep book and chapter writes denied unless an explicit admin workflow is implemented.
-- Allow users to read or write private data only under their own UID.
-- Deny access by default for collections that are not explicitly supported.
-- Validate required fields and allowed value types at the security-rule boundary.
-- Never commit service-account files, `.env` files, signing keys, or `google-services.json`.
-- Update and test Firestore rules whenever a data path or permission changes.
+- Treat the Android client as untrusted. The Laravel API enforces authentication, authorization, and validation.
+- Store bearer tokens only through `AuthTokenStore`. Never log them.
+- Never commit service-account files, `.env` files, signing keys, or tokens.
 
 ## 10. Git Branch Naming
 
@@ -172,9 +168,9 @@ Use lowercase kebab-case with one of these prefixes:
 | New feature | `feature/<scope>` | `feature/auth-flow` |
 | Bug fix | `fix/<scope>` | `fix/login-validation` |
 | Refactoring | `refactor/<scope>` | `refactor/book-repository` |
-| Tests | `test/<scope>` | `test/firebase-rules` |
+| Tests | `test/<scope>` | `test/auth-repository` |
 | Documentation | `docs/<scope>` | `docs/coding-conventions` |
-| Build/tooling | `chore/<scope>` | `chore/firebase-setup` |
+| Build/tooling | `chore/<scope>` | `chore/gradle-setup` |
 
 Branch rules:
 
@@ -193,7 +189,7 @@ fix: prevent duplicate login requests
 refactor: inject book repository into view model
 test: cover failed registration state
 docs: add coding conventions
-chore: configure Firebase dependencies
+chore: configure Retrofit dependencies
 ```
 
 - Write the subject in English and imperative mood.
@@ -206,8 +202,7 @@ chore: configure Firebase dependencies
 - Test behavior, not private implementation details.
 - Every non-trivial branch, security rule, money operation, or permission check requires a test.
 - ViewModel tests must cover loading, success, empty, and failure states where applicable.
-- Firebase Rules tests must cover both allowed and denied access.
-- Use fake repository implementations in ViewModel unit tests. Do not call live Firebase services.
+- Use fake repository implementations in ViewModel unit tests. Do not call the live backend API.
 - A bug fix should include a regression test when the behavior can be tested reasonably.
 
 ## 13. Review Checklist
@@ -216,7 +211,7 @@ Before requesting review, confirm that:
 
 - The change matches its task and contains no unrelated refactoring.
 - Naming follows this document and no new vague abstraction was introduced.
-- Fragments do not call Firebase and ViewModels depend on repository interfaces.
+- Fragments do not call gateways or Room, and ViewModels depend on repository interfaces.
 - Loading, empty, success, and error states are handled where relevant.
 - User-facing text is stored in resources.
 - Secrets and sensitive values are not present in code, logs, or Git.

@@ -3,7 +3,7 @@
 - **Status:** Accepted
 - **Date:** 2026-11-13
 - **Scope:** Backend ownership, structured data, authentication, book metadata, EPUB content, and audiobooks
-- **Supersedes:** [Hybrid Data Storage Decision](hybrid_data_storage.md)
+- **Supersedes:** Hybrid Data Storage Decision (Firebase-based, removed)
 
 ## Why Firebase Is Being Removed
 

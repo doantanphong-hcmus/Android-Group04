@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.androidx.room)
     alias(libs.plugins.ksp)
-    id("com.google.gms.google-services")
     id("org.jlleitschuh.gradle.ktlint")
 }
 
@@ -72,8 +71,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.storage)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.sqlite.framework)
     implementation(libs.androidx.fragment.ktx)

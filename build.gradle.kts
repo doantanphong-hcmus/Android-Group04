@@ -3,6 +3,5 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.androidx.room) apply false
     alias(libs.plugins.ksp) apply false
-    id("com.google.gms.google-services") version "4.5.0" apply false
     id("org.jlleitschuh.gradle.ktlint") version "14.2.0"
 }

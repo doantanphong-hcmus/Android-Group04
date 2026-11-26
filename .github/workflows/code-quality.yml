@@ -33,9 +33,6 @@ jobs:
           java-version: "25"
           cache: gradle
 
-      - name: Add Firebase configuration for CI
-        run: cp .github/fixtures/firebase-ci-config.json app/google-services.json
-
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 

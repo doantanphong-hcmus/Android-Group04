@@ -2,7 +2,6 @@ package com.tangkinhcac.app
 
 import android.app.Application
 import android.os.Build
-import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
 import com.tangkinhcac.app.data.local.TangKinhCacDatabase
 import com.tangkinhcac.app.data.local.auth.AuthTokenStore
@@ -20,10 +19,6 @@ class TangKinhCacApplication : Application() {
     // Storage services stay lazy so application startup does not open resources before a repository needs them.
     internal val localDatabase: TangKinhCacDatabase by lazy {
         TangKinhCacDatabase.create(applicationContext)
-    }
-
-    internal val firebaseStorage: FirebaseStorage by lazy {
-        FirebaseStorage.getInstance()
     }
 
     private val authTokenStore: AuthTokenStore by lazy {

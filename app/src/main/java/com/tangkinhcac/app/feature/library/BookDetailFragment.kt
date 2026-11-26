@@ -101,12 +101,18 @@ class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
             openReviews(book.id, openComposer = true)
         }
 
-        val unavailableAction =
-            View.OnClickListener {
-                Toast.makeText(requireContext(), R.string.book_detail_content_unavailable, Toast.LENGTH_SHORT).show()
-            }
-        root.findViewById<View>(R.id.book_detail_read).setOnClickListener(unavailableAction)
-        root.findViewById<View>(R.id.book_detail_listen).setOnClickListener(unavailableAction)
+        root.findViewById<View>(R.id.book_detail_read).setOnClickListener {
+            val fragment = BookReaderFragment.newInstance(book.id, book.title)
+            parentFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_content_container, fragment)
+                .setPrimaryNavigationFragment(fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+        root.findViewById<View>(R.id.book_detail_listen).setOnClickListener {
+            Toast.makeText(requireContext(), R.string.book_detail_content_unavailable, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun openReviews(

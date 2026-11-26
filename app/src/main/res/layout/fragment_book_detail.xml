@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/library_background"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <ImageButton
+                android:id="@+id/book_detail_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/library_back_content_description"
+                android:padding="12dp"
+                android:src="@drawable/ic_library_back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:text="@string/book_detail_title"
+                android:textColor="@color/library_text_primary"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/book_detail_bookmark"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/book_detail_add_bookmark"
+                android:padding="12dp"
+                android:src="@drawable/ic_community_bookmark" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="18dp">
+
+                <ImageView
+                    android:id="@+id/book_detail_cover"
+                    android:layout_width="210dp"
+                    android:layout_height="315dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_book_detail_cover"
+                    android:contentDescription="@string/book_detail_cover_description"
+                    android:elevation="5dp"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/book_detail_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:textColor="@color/library_text_primary"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:text="Truyện Kiều" />
+
+                <TextView
+                    android:id="@+id/book_detail_author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:textColor="@color/library_text_primary"
+                    android:textSize="18sp"
+                    tools:text="Nguyễn Du" />
+
+                <TextView
+                    android:id="@+id/book_detail_metadata"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:textColor="@color/library_text_secondary"
+                    android:textSize="15sp"
+                    tools:text="Việt Nam  ·  Lục bát" />
+
+                <TextView
+                    android:id="@+id/book_detail_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:textColor="@color/library_accent"
+                    android:textSize="17sp"
+                    tools:text="★  4,7  ·  128 đánh giá  ›" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/library_border" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="serif"
+                    android:text="@string/book_detail_introduction"
+                    android:textColor="@color/library_text_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/book_detail_synopsis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:ellipsize="end"
+                    android:fontFamily="serif"
+                    android:lineSpacingExtra="3dp"
+                    android:maxLines="3"
+                    android:textColor="@color/library_text_primary"
+                    android:textSize="16sp"
+                    tools:text="Thúy Kiều bán mình chuộc cha rồi trải qua mười lăm năm lưu lạc." />
+
+                <TextView
+                    android:id="@+id/book_detail_expand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:text="@string/book_detail_read_more"
+                    android:textColor="@color/library_accent"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/library_border" />
+
+                <LinearLayout
+                    android:id="@+id/book_detail_reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="14dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:text="@string/book_detail_reader_reviews"
+                            android:textColor="@color/library_text_primary"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="serif"
+                            android:text="@string/book_detail_rating_summary"
+                            android:textColor="@color/library_accent"
+                            android:textSize="17sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="@string/library_symbol_next"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="32sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_library_card"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="@string/book_detail_mock_review_one_author"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="serif"
+                        android:text="@string/book_detail_mock_review_one_rating"
+                        android:textColor="@color/library_accent"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="serif"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/book_detail_mock_review_one_comment"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/book_detail_view_all_reviews"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text="@string/book_detail_view_all_reviews"
+                        android:textColor="@color/library_accent"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="28dp"
+                        android:background="@color/library_border" />
+
+                    <TextView
+                        android:id="@+id/book_detail_write_review"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text="@string/book_detail_write_review"
+                        android:textColor="@color/library_accent"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@color/library_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:id="@+id/book_detail_read"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_library_primary_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="@string/book_detail_read_book"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/book_detail_listen"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_library_outline_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="@string/book_detail_listen_book"
+                android:textColor="@color/library_text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+</LinearLayout>

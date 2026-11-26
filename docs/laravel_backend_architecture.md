@@ -4,6 +4,7 @@
 - **Date:** 2026-11-13
 - **Scope:** Backend ownership, structured data, authentication, book metadata, EPUB content, and audiobooks
 - **Supersedes:** Hybrid Data Storage Decision (Firebase-based, removed)
+- **Server specification:** [Backend Requirements Specification](backend_requirements_specification.md)
 
 ## Why Firebase Is Being Removed
 
@@ -84,7 +85,7 @@ new operations only when their requirements exist.
 
 ### Auth Gateway
 
-**Purpose:** establish and revoke an authenticated mobile session and return the current user.
+**Purpose:** create accounts, establish or revoke authenticated mobile sessions, and return the current user.
 
 ```http
 POST /api/v1/auth/register

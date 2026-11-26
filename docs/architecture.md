@@ -44,3 +44,6 @@ requirements are implemented.
 
 The gateway boundaries, request flows, data ownership, and initial relational model are defined in
 [Laravel Backend Architecture Decision](laravel_backend_architecture.md).
+
+The server implementation contract is defined in
+[Backend Requirements Specification](backend_requirements_specification.md).

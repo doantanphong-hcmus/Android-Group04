@@ -11,6 +11,7 @@ import com.tangkinhcac.app.data.remote.auth.AuthRequestInterceptor
 import com.tangkinhcac.app.data.remote.auth.RetrofitAuthGateway
 import com.tangkinhcac.app.data.repository.AuthRepository
 import com.tangkinhcac.app.data.repository.BackendAuthRepository
+import com.tangkinhcac.app.data.repository.BookReaderRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,19 +28,23 @@ class TangKinhCacApplication : Application() {
 
     private val gson: Gson by lazy { Gson() }
 
-    private val authApi: AuthApi by lazy {
-        val httpClient =
-            OkHttpClient
-                .Builder()
-                .addInterceptor(AuthRequestInterceptor(authTokenStore))
-                .build()
+    private val httpClient: OkHttpClient by lazy {
+        OkHttpClient.Builder().addInterceptor(AuthRequestInterceptor(authTokenStore)).build()
+    }
+
+    private val retrofit: Retrofit by lazy {
         Retrofit
             .Builder()
             .baseUrl(BuildConfig.API_BASE_URL)
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-            .create(AuthApi::class.java)
+    }
+
+    private val authApi: AuthApi by lazy { retrofit.create(AuthApi::class.java) }
+
+    val bookReaderRepository: BookReaderRepository by lazy {
+        BookReaderRepository(applicationContext, retrofit, OkHttpClient())
     }
 
     // A single repository owns token lifecycle and keeps HTTP details outside the UI layer.

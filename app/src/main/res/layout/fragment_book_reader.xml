@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reader_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/library_background">
+
+    <LinearLayout
+        android:id="@+id/reader_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/reader_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <ImageButton
+                android:id="@+id/reader_back"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/library_back_content_description"
+                android:padding="12dp"
+                android:src="@drawable/ic_library_back" />
+
+            <TextView
+                android:id="@+id/reader_book_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:textColor="@color/library_text_primary"
+                android:textSize="21sp"
+                tools:text="Truyện Kiều" />
+
+            <TextView
+                android:id="@+id/reader_settings"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/reader_settings"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="@string/reader_settings_short"
+                android:textColor="@color/library_text_primary"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/reader_toolbar_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/library_border" />
+
+        <com.tangkinhcac.app.feature.library.ReaderScrollView
+            android:id="@+id/reader_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/reader_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="58dp"
+                android:paddingBottom="70dp">
+
+                <TextView
+                    android:id="@+id/reader_chapter_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:textColor="@color/library_text_primary"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:text="Mở đầu" />
+
+                <View
+                    android:layout_width="56dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@color/library_accent" />
+
+                <TextView
+                    android:id="@+id/reader_chapter_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="14dp"
+                    android:textColor="@color/library_text_primary"
+                    android:textSize="20sp"
+                    tools:text="Trăm năm trong cõi người ta,&#10;Chữ tài chữ mệnh khéo là ghét nhau." />
+
+                <LinearLayout
+                    android:id="@+id/reader_end_actions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/reader_end_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        tools:text="Hết Truyện Kiều"
+                        android:textColor="@color/library_text_primary"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/reader_rate_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="52dp"
+                        android:layout_marginTop="28dp"
+                        android:background="@drawable/bg_library_outline_button"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:paddingHorizontal="32dp"
+                        android:text="@string/reader_rate_book"
+                        android:textColor="@color/library_accent"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/reader_book_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text="@string/reader_book_details"
+                        android:textColor="@color/library_accent"
+                        android:textSize="17sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.tangkinhcac.app.feature.library.ReaderScrollView>
+
+        <LinearLayout
+            android:id="@+id/reader_footer"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp">
+
+            <TextView
+                android:id="@+id/reader_contents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:gravity="center_vertical"
+                android:text="@string/reader_contents"
+                android:textColor="@color/library_text_primary"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/reader_listen"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:gravity="center_vertical|end"
+                android:text="@string/reader_listen"
+                android:textColor="@color/library_text_primary"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reader_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:indeterminateTint="@color/library_accent" />
+
+        <TextView
+            android:id="@+id/reader_loading_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:fontFamily="serif"
+            android:text="@string/reader_loading"
+            android:textColor="@color/library_text_primary"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reader_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_community_book"
+            app:tint="@color/library_accent" />
+
+        <TextView
+            android:id="@+id/reader_error_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="serif"
+            android:text="@string/reader_error_title"
+            android:textColor="@color/library_text_primary"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reader_error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="serif"
+            android:text="@string/reader_error_message"
+            android:textColor="@color/library_text_primary"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/reader_retry"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_library_outline_button"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="@string/reader_retry"
+            android:textColor="@color/library_accent"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/reader_error_back"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="@string/library_back_content_description"
+            android:textColor="@color/library_accent" />
+    </LinearLayout>
+</FrameLayout>
